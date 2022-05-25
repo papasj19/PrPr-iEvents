@@ -304,6 +304,29 @@ public class APIHandler {
         rQ.add(loginUserRequest);
     }
 
+    public static void signUpUser(String name, String lastName, String email, String password,String image, Context context){
+        HashMap<String, String> params = new HashMap<>();
+        params.put("name", name);
+        params.put("last_name", lastName);
+        params.put("email", email);
+        params.put("password", password);
+        params.put("image", image);
+        JsonObjectRequest SingUpUserRequest = new JsonObjectRequest(Request.Method.POST, APIURL+"/users", new JSONObject(params),
+                response -> {
+                    try {
+                        System.out.println(response);
+                        authToken.setToken(response.getString("accessToken"));
+                        Log.i("API", "token: " + response.getString("accessToken"));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                },
+                error -> System.out.println(error.getMessage())
+        );
+        RequestQueue rQ = Volley.newRequestQueue(context);
+        rQ.add(SingUpUserRequest);
+    }
+
     public static void saveEvent(EventPUTAPI toBeSaved, Context context){
         HashMap<String, EventPUTAPI> params = new HashMap<>();
         params.put("event", toBeSaved);

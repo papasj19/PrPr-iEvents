@@ -55,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
         signUpBut.setText(R.string.signup_button_text);
         signUpBut.setOnClickListener(v->{
             APIHandler.getUserByID(1273, this);
-            //Intent intent = new Intent(MainActivity.this,SignUpScreen.class);
-            //startActivity(intent);
+            Intent intent = new Intent(MainActivity.this,SignUpScreen.class);
+            startActivity(intent);
 
         });
     }
