@@ -1,13 +1,3 @@
 <resources>
-    <string name="app_name">proj</string>
-    <string name="titleProgram">iEvents</string>
-    <string name="enter_email">Email</string>
-    <string name="enter_username">Username</string>
-    <string name="enter_password">Password</string>
-    <string name="enter_firstName">firstName</string>
-    <string name="enter_lastName">lastName</string>
-    <string name="enter_password_confirm">Confirmed Password</string>
-    <string name="login_button_text">LOGIN</string>
-    <string name="signup_button_text">SIGN UP</string>
-
+    <string name="app_name">iEvents</string>
 </resources>
