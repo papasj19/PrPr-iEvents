@@ -2,22 +2,27 @@ package edu.url.salle.spencerjames.johnson.proj;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
+
+
+import edu.url.salle.spencerjames.johnson.proj.api.API;
+import edu.url.salle.spencerjames.johnson.proj.configs.Config;
+import edu.url.salle.spencerjames.johnson.proj.interfaces.VolleyInterfaceArray;
+import edu.url.salle.spencerjames.johnson.proj.interfaces.VolleyInterfaceObject;
+import edu.url.salle.spencerjames.johnson.proj.utils.Util;
+
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView title;
-    private EditText emailInput;
-    private EditText passwordInput;
-    private Button loginBut;
-    private Button signUpBut;
-
+//  String accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MTY0MCwibmFtZSI6Ik5ldyIsImxhc3RfbmFtZSI6IlVzZXIiLCJlbWFpbCI6Im5ld3VzZXIxMjM0ZDhjeGRzQGdtYWlsLmNvbSIsImltYWdlIjoiY2RzYyJ9.3CZ5iyvqibj4dAebF0YwA3aYae7q_gnEBOHTuVdd1Qo";
 
 
     @Override
@@ -25,39 +30,53 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        title = (TextView) findViewById(R.id.title_prog);
-        title.setText(R.string.titleProgram);
-
-        emailInput = (EditText) findViewById(R.id.username_input);
-        emailInput.setText(R.string.enter_email);
-
-
-
-        passwordInput = (EditText) findViewById(R.id.password_input);
-        passwordInput.setText(R.string.enter_password);
-
-
-
-        loginBut = (Button) findViewById(R.id.try_login);
-        loginBut.setText(R.string.login_button_text);
-        loginBut.setOnClickListener(v->{
-            //button press here
-            String email = emailInput.getText().toString();
-            String passw = passwordInput.getText().toString();
-            APIHandler.loginUser(email,passw, this);
-            title.setText(APIHandler.authToken.getToken());
-            //if to determine if the information is okay?
-           // Intent intent = new Intent(MainActivity.this,EventSearch.class);
-           // startActivity(intent);
+        findViewById(R.id.main_btn_signup).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, SignupActivity.class));
+            }
         });
 
-        signUpBut = (Button) findViewById(R.id.signUp);
-        signUpBut.setText(R.string.signup_button_text);
-        signUpBut.setOnClickListener(v->{
-            APIHandler.getUserByID(1273, this);
-            Intent intent = new Intent(MainActivity.this,SignUpScreen.class);
-            startActivity(intent);
-
+        findViewById(R.id.main_btn_signin).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, SigninActivity.class));
+            }
         });
+
+//        API.loginUser(MainActivity.this, "qwerty123@gmail.com",
+//                "password", new VolleyInterfaceObject() {
+//            @Override
+//            public void onError(String message) {
+//                Util.showToast(MainActivity.this, message);
+//            }
+//
+//            @Override
+//            public void onResponse(JSONObject response) {
+//                try {
+//                    if(response.getString("accessToken")!=null){
+//                        Config.accesstoken = response.getString("accessToken");
+//                        Util.showToast(MainActivity.this,"User Signup "+response.getString("accessToken"));
+//                        API.getUsers(MainActivity.this, new VolleyInterfaceArray() {
+//                            @Override
+//                            public void onError(String message) {
+//                                Util.showToast(MainActivity.this, message);
+//                            }
+//
+//                            @Override
+//                            public void onResponse(JSONArray response) {
+//                                Util.showToast(MainActivity.this,"Users List "+response.toString());
+//
+//                            }
+//                        });
+//                    }
+//                } catch (JSONException e) {
+//                    e.printStackTrace();
+//                    Util.showToast(MainActivity.this,e.getMessage());
+//                }
+//            }
+//        });
+
     }
+
 }

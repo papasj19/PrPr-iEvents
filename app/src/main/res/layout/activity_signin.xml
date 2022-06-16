@@ -5,10 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="16dp"
-    tools:context=".MainActivity">
+    tools:context=".SigninActivity">
+
+    <EditText
+        android:id="@+id/signin_et_password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="68dp"
+        android:ems="10"
+        android:hint="password"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/signin_btn_signin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/main_btn_signin"
+        android:id="@+id/signin_btn_signin"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="48dp"
@@ -16,27 +29,31 @@
         android:text="Sign in"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/main_btn_signup"
+    <EditText
+        android:id="@+id/signin_et_email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:background="@drawable/roundedbtn"
-        android:text="Sign up"
-        app:layout_constraintBottom_toTopOf="@+id/main_btn_signin"
+        android:layout_marginBottom="28dp"
+        android:ems="10"
+        android:hint="email"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/signin_et_password"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/main_iv_img"
+        android:id="@+id/imageView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/main_btn_signup"
+        app:layout_constraintBottom_toTopOf="@+id/signin_et_email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/applogo" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
