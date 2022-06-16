@@ -2,6 +2,7 @@ package edu.url.salle.spencerjames.johnson.proj;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -35,6 +36,7 @@ public class SpecificEventActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if(Util.isEditTextEmpty(idEt)){
                     Util.showToast(SpecificEventActivity.this, "Please enter ID first");
+                    //Util.showToast(SpecificEventActivity.this, R.string.ID_first);
                 }else{
                     eventInfoTv.setText("");
                     Util.showProgressDialog(SpecificEventActivity.this, "Getting event info");

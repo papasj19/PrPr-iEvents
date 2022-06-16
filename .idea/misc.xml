@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/layout/activity_all_events.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_best_event.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_chat.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_chat_users.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_create_event.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_edit.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_event_participants.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_friend_requests.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_friends.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_signin.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_signup.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_specific_event.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_users.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/event_viewholder.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/message_viewholder.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/profile_viewholder.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>

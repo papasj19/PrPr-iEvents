@@ -30,70 +30,70 @@
                 android:id="@+id/home_btn_users"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Users" />
+                android:text="@string/Users" />
 
             <Button
                 android:id="@+id/home_btn_friends"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Friends" />
+                android:text="@string/Friends" />
 
             <Button
                 android:id="@+id/home_btn_requests"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Requests" />
+                android:text="@string/Requests" />
 
             <Button
                 android:id="@+id/home_btn_chatusers"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Chat" />
+                android:text="@string/Chat" />
 
             <Button
                 android:id="@+id/home_btn_createevent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Create Event" />
+                android:text="@string/Create_Event" />
 
             <Button
                 android:id="@+id/home_btn_getevents"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Get all events" />
+                android:text="@string/Getallevents" />
 
             <Button
                 android:id="@+id/home_btn_geteventbyid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Search for event" />
+                android:text="@string/Searchforevent" />
 
             <Button
                 android:id="@+id/home_btn_getbestevents"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Get the best events" />
+                android:text="@string/GetBestEvent" />
 
             <Button
                 android:id="@+id/home_btn_edit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Profile Update" />
+                android:text="@string/ProfileUpdate" />
 
             <Button
                 android:id="@+id/home_btn_signout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="Signout" />
+                android:text="@string/Signout" />
 
         </LinearLayout>
     </ScrollView>

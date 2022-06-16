@@ -57,6 +57,7 @@ public class SigninActivity extends AppCompatActivity {
                                             Config.accesstoken = response.getString("accessToken");
                                             DataHolder.getInstance().userEmail = emailEt.getText().toString();
                                             Util.showToast(SigninActivity.this, "Sign in successfully");
+                                            //Util.showToast(SigninActivity.this, R.string.successful_signin);
                                             Util.dismissProgressDialog();
                                             startActivity(new Intent(SigninActivity.this, HomeActivity.class));
                                         }else{
