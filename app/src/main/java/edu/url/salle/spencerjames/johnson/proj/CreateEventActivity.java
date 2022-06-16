@@ -41,9 +41,9 @@ public class CreateEventActivity extends AppCompatActivity {
                         Util.isEditTextEmpty(locEt) || Util.isEditTextEmpty(desEt) ||
                         Util.isEditTextEmpty(startDateEt) || Util.isEditTextEmpty(endDateEt) ||
                         Util.isEditTextEmpty(typeEt) || Util.isEditTextEmpty(noOfPartEt)){
-                    Util.showToast(CreateEventActivity.this, "Some fields are empty");
+                    Util.showToast(CreateEventActivity.this, CreateEventActivity.this.getString(R.string.createevent));
                 }else{
-                    Util.showProgressDialog(CreateEventActivity.this, "Creating event\nPlease wait");
+                    Util.showProgressDialog(CreateEventActivity.this, CreateEventActivity.this.getString(R.string.createevent));
                     API.createEvent(new Event(nameEt.getText().toString(), imgEt.getText().toString(),
                                     locEt.getText().toString(), desEt.getText().toString(), startDateEt.getText().toString(),
                                     endDateEt.getText().toString(), typeEt.getText().toString(), Integer.parseInt(noOfPartEt.getText().toString())),
@@ -57,7 +57,7 @@ public class CreateEventActivity extends AppCompatActivity {
                                 @Override
                                 public void onResponse(JSONObject response) {
                                     if(response!=null){
-                                        Util.showToast(CreateEventActivity.this, "Event created successfully");
+                                        Util.showToast(CreateEventActivity.this, CreateEventActivity.this.getString(R.string.eventcreatesucc));
                                         Util.dismissProgressDialog();
                                         onBackPressed();
                                     }
