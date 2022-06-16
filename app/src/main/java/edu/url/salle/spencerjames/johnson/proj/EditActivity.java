@@ -40,16 +40,16 @@ public class EditActivity extends AppCompatActivity {
                 if (Util.isEditTextEmpty(fnameEt) || Util.isEditTextEmpty(lnameEt) ||
                         Util.isEditTextEmpty(emailEt) ||
                         Util.isEditTextEmpty(imgUrlEt)){
-                    Util.showToast(EditActivity.this, "Some fields are empty");
+                    Util.showToast(EditActivity.this, EditActivity.this.getString(R.string.empty_fields));
                 }
                 else {
-                    Util.showProgressDialog(EditActivity.this, "Updating Please wait");
+                    Util.showProgressDialog(EditActivity.this, EditActivity.this.getString(R.string.Updatingplzw));
                     API.putUser(EditActivity.this, new User(fnameEt.getText().toString(), lnameEt.getText().toString(),
                                     emailEt.getText().toString(),null,imgUrlEt.getText().toString()),
                             new VolleyInterfaceArray() {
                                 @Override
                                 public void onError(String message) {
-                                    Util.showToast(EditActivity.this, "Updated successfully");  //we've tested it and so far the only error is a common can't convert JSONArray to JSONObj but the update itself works perfectly
+                                    Util.showToast(EditActivity.this, EditActivity.this.getString(R.string.updatesucc));  //we've tested it and so far the only error is a common can't convert JSONArray to JSONObj but the update itself works perfectly
                                     Util.dismissProgressDialog();   //so we ignore it since we don't use the response data
                                     onBackPressed();
                                 }
@@ -57,7 +57,7 @@ public class EditActivity extends AppCompatActivity {
                                 @Override
                                 public void onResponse(JSONArray response) {
                                     if(response.length()>0){
-                                        Util.showToast(EditActivity.this, "Updated successfully");
+                                        Util.showToast(EditActivity.this, EditActivity.this.getString(R.string.updatesucc));
                                         Util.dismissProgressDialog();
                                         onBackPressed();
                                     }
@@ -67,7 +67,7 @@ public class EditActivity extends AppCompatActivity {
             }
         });
 
-        Util.showProgressDialog(EditActivity.this, "Getting data\nPlease wait");
+        Util.showProgressDialog(EditActivity.this, EditActivity.this.getString(R.string.obtaindata));
         API.getUserBySearch(EditActivity.this, DataHolder.getInstance().userEmail, new VolleyInterfaceArray() {
                     @Override
                     public void onError(String message) {

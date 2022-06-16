@@ -28,7 +28,7 @@ public class ChatUsersActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chat_users);
 
         init();
-        Util.showProgressDialog(ChatUsersActivity.this, "Getting users\nPlease wait");
+        Util.showProgressDialog(ChatUsersActivity.this, ChatUsersActivity.this.getString(R.string.obtainusers));
         API.getAllChatsUsers(ChatUsersActivity.this, new VolleyInterfaceArray() {
             @Override
             public void onError(String message) {

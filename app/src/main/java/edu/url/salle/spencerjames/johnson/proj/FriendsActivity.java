@@ -30,7 +30,7 @@ public class FriendsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_friends);
 
         init();
-        Util.showProgressDialog(FriendsActivity.this, "Getting friends\nPlease wait");
+        Util.showProgressDialog(FriendsActivity.this, FriendsActivity.this.getString(R.string.obtainamigos));
         API.getAllFriends(FriendsActivity.this, new VolleyInterfaceArray() {
             @Override
             public void onError(String message) {

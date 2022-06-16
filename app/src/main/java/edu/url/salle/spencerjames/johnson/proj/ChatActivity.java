@@ -38,7 +38,7 @@ public class ChatActivity extends AppCompatActivity {
         id = getIntent().getIntExtra("id",0);
 
         init();
-        Util.showProgressDialog(ChatActivity.this, "Getting messages\nPlease wait");
+        Util.showProgressDialog(ChatActivity.this, ChatActivity.this.getString(R.string.obtainmessag));
         API.getChatsById(ChatActivity.this,id, new VolleyInterfaceArray() {
             @Override
             public void onError(String message) {
@@ -77,9 +77,9 @@ public class ChatActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(Util.isEditTextEmpty(messageEt)){
-                    Util.showToast(ChatActivity.this,"Write message first");
+                    Util.showToast(ChatActivity.this,ChatActivity.this.getString(R.string.Writemessfirst));
                 }else{
-                    Util.showProgressDialog(ChatActivity.this, "Sending message\nPlease wait");
+                    Util.showProgressDialog(ChatActivity.this, ChatActivity.this.getString(R.string.sendmessag));
                     String con = id+"  " + userId + "  " + messageEt.getText().toString();
                     API.sendChatMessage(ChatActivity.this,messageEt.getText().toString(),
                             userId,id, new VolleyInterfaceObject() {
@@ -92,7 +92,7 @@ public class ChatActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(JSONObject response) {
                             if(response!=null){
-                                Util.showToast(ChatActivity.this, "Message sent Successfully");
+                                Util.showToast(ChatActivity.this, ChatActivity.this.getString(R.string.successful_sendmess));
                                 Util.dismissProgressDialog();
                                 Intent intent = new Intent(ChatActivity.this, ChatActivity.class);
                                 intent.putExtra("id",id);

@@ -31,7 +31,7 @@ public class AllEventsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_all_events);
 
         init();
-        Util.showProgressDialog(AllEventsActivity.this, "Getting events\nPlease wait");
+        Util.showProgressDialog(AllEventsActivity.this, AllEventsActivity.this.getString(R.string.getevents));
         API.getAllEvents(AllEventsActivity.this, new VolleyInterfaceArray() {
             @Override
             public void onError(String message) {

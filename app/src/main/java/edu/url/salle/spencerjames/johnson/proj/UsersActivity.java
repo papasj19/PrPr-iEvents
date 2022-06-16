@@ -28,7 +28,7 @@ public class UsersActivity extends AppCompatActivity {
         setContentView(R.layout.activity_users);
 
         init();
-        Util.showProgressDialog(UsersActivity.this, "Getting users\nPlease wait");
+        Util.showProgressDialog(UsersActivity.this, UsersActivity.this.getString(R.string.obtainusers));
         API.getUsers(UsersActivity.this, new VolleyInterfaceArray() {
             @Override
             public void onError(String message) {
