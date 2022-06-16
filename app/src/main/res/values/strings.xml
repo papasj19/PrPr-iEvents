@@ -7,8 +7,10 @@
     <string name="Requests">Requests</string>
     <string name="Signout">Signout</string>
     <string name="Signin">Sign in</string>
+    <string name="Signinplzw">Sign in Please Wait</string>
     <string name="Signup">Sign up</string>
     <string name="Chat">Chat</string>
+    <string name="imgurl">img url</string>
     <string name="EVENTPARTICIPANTSUSERS">EVENT PARTICIPANTS USERS</string>
     <string name="NOTATTENDEVENT">You are not attending the event</string>
     <string name="Create_Event">Create Event</string>
@@ -20,6 +22,7 @@
     <string name="empty_fields">Some fields are empty</string>
     <string name="successful_signin">Signed in successfully</string>
     <string name="imgurl">img url</string>
+    <string name="usernoexistwithemailandpass">A user does not exist with that email and password</string>
     <string name="firstname">first name</string>
     <string name="lastname">last name</string>
     <string name="Update">Update</string>
@@ -27,6 +30,9 @@
     <string name="password">password</string>
     <string name="eventtype">event type</string>
     <string name="eventname">event name</string>
+    <string name="Plzentkeyword">Please enter keyword first</string>
+    <string name="noeventsfound">No events found.</string>
+    <string name="gettingeventinfo">Getting event info</string>
     <string name="location">location</string>
     <string name="description">description</string>
     <string name="eventstartdate">event start date</string>

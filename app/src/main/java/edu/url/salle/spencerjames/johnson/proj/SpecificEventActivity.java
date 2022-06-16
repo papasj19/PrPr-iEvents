@@ -35,11 +35,10 @@ public class SpecificEventActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(Util.isEditTextEmpty(idEt)){
-                    Util.showToast(SpecificEventActivity.this, "Please enter ID first");
-                    //Util.showToast(SpecificEventActivity.this, R.string.ID_first);
+                    Util.showToast(SpecificEventActivity.this, SpecificEventActivity.this.getString(R.string.ID_first));
                 }else{
                     eventInfoTv.setText("");
-                    Util.showProgressDialog(SpecificEventActivity.this, "Getting event info");
+                    Util.showProgressDialog(SpecificEventActivity.this, SpecificEventActivity.this.getString(R.string.gettingeventinfo));
                     API.getEventById(SpecificEventActivity.this, Integer.parseInt(idEt.getText().toString()), new VolleyInterfaceArray() {
                         @Override
                         public void onError(String message) {
@@ -66,7 +65,7 @@ public class SpecificEventActivity extends AppCompatActivity {
 
                                     }
                                 } else {
-                                    Util.showToast(SpecificEventActivity.this, "No events found.");
+                                    Util.showToast(SpecificEventActivity.this, SpecificEventActivity.this.getString(R.string.noeventsfound));
                                 }
                             } catch (JSONException e) {
                                 Util.showToast(SpecificEventActivity.this, e.getLocalizedMessage());
@@ -81,10 +80,10 @@ public class SpecificEventActivity extends AppCompatActivity {
 
         findViewById(R.id.specific_btn_search).setOnClickListener(view -> {
             if(Util.isEditTextEmpty(searchEt)){
-                Util.showToast(SpecificEventActivity.this, "Please enter keyword first");
+                Util.showToast(SpecificEventActivity.this, SpecificEventActivity.this.getString(R.string.Plzentkeyword));
             }else{
                 eventInfoTv.setText("");
-                Util.showProgressDialog(SpecificEventActivity.this, "Getting event info");
+                Util.showProgressDialog(SpecificEventActivity.this, SpecificEventActivity.this.getString(R.string.gettingeventinfo));
                 API.getEventBySearch(SpecificEventActivity.this, searchEt.getText().toString(), new VolleyInterfaceArray() {
                     @Override
                     public void onError(String message) {
@@ -112,7 +111,7 @@ public class SpecificEventActivity extends AppCompatActivity {
 
                                 }
                             } else {
-                                Util.showToast(SpecificEventActivity.this, "No events found.");
+                                Util.showToast(SpecificEventActivity.this, SpecificEventActivity.this.getString(R.string.noeventsfound));
                             }
                         } catch (JSONException e) {
                             Util.showToast(SpecificEventActivity.this, e.getLocalizedMessage());
