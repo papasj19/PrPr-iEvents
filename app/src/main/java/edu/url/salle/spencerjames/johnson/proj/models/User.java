@@ -20,4 +20,6 @@ public class User {
         this.password = password;
         Image = image;
     }
+
+
 }

@@ -64,6 +64,7 @@
     <string name="SearchEvent">Search Event</string>
     <string name="DropEvent">Drop Event</string>
     <string name="Reject">Reject</string>
+    <string name="Profile">Profile</string>
     <string name="SendFriendRequest">Send Friend Request</string>
     <string name="Seeparticipants">See participants</string>
     <string name="Attendevent">Attend event</string>
