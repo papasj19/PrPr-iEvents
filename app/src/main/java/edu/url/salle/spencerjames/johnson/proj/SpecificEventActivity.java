@@ -122,7 +122,30 @@ public class SpecificEventActivity extends AppCompatActivity {
                 });
             }
         });
+    }
 
+    private void showResults(JSONArray results) {
+        try {
+            if (results.length() > 0) {
+                for (int i = 0; i < results.length(); i++) {
+                    JSONObject eventJson = results.getJSONObject(i);
+                    eventInfoTv.setText(eventInfoTv.getText().toString() + "\n\n" +
+                            "ID: " + eventJson.getInt("id") + "\n"
+                            + "Owner ID: " + eventJson.getInt("owner_id") + "\n"
+                            + "Name: " + eventJson.getString("name") + "\n"
+                            + "Location: " + eventJson.getString("location") + "\n"
+                            + "Description: " + eventJson.getString("description") + "\n"
+                            + "Type: " + eventJson.getString("type") + "\n"
+                            + "No of participants: " + eventJson.getInt("n_participators"));
 
+                }
+            } else {
+                Util.showToast(SpecificEventActivity.this, "No events found.");
+            }
+        } catch (JSONException e) {
+            Util.showToast(SpecificEventActivity.this, e.getLocalizedMessage());
+            e.printStackTrace();
+        }
+        Util.dismissProgressDialog();
     }
 }
