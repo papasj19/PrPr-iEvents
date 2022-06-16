@@ -35,9 +35,9 @@ public class SigninActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(Util.isEditTextEmpty(emailEt) || Util.isEditTextEmpty(passwordEt)){
-                    Util.showToast(SigninActivity.this, "Some fields are empty");
+                    Util.showToast(SigninActivity.this, SigninActivity.this.getString(R.string.empty_fields));
                 } else {
-                    Util.showProgressDialog(SigninActivity.this, "Signin Please wait");
+                    Util.showProgressDialog(SigninActivity.this, SigninActivity.this.getString(R.string.Signinplzw));
                     API.loginUser(SigninActivity.this,
                             emailEt.getText().toString(),
                             passwordEt.getText().toString(),
@@ -45,7 +45,7 @@ public class SigninActivity extends AppCompatActivity {
                                 @Override
                                 public void onError(String message) {
                                     if (message == "null")
-                                        message = "A user does not exist with that email and password";
+                                        message = getString(R.string.usernoexistwithemailandpass);
                                     Util.showToast(SigninActivity.this, "error: " + message);
                                     Util.dismissProgressDialog();
                                 }
@@ -56,7 +56,8 @@ public class SigninActivity extends AppCompatActivity {
                                         if(response.getString("accessToken")!=null){
                                             Config.accesstoken = response.getString("accessToken");
                                             DataHolder.getInstance().userEmail = emailEt.getText().toString();
-                                            Util.showToast(SigninActivity.this, "Sign in successfully");
+                                            Util.showToast(SigninActivity.this, SigninActivity.this.getString(R.string.successful_signin));
+                                            //Util.showToast(SigninActivity.this, R.string.successful_signin);
                                             Util.dismissProgressDialog();
                                             startActivity(new Intent(SigninActivity.this, HomeActivity.class));
                                         }else{
