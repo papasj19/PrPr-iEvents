@@ -39,9 +39,9 @@ public class SignupActivity extends AppCompatActivity {
                 if(Util.isEditTextEmpty(fnameEt) || Util.isEditTextEmpty(lnameEt) ||
                 Util.isEditTextEmpty(emailEt) || Util.isEditTextEmpty(passwordEt) ||
                 Util.isEditTextEmpty(imgUrlEt)){
-                    Util.showToast(SignupActivity.this, "Some fields are empty");
+                    Util.showToast(SignupActivity.this, SignupActivity.this.getString(R.string.empty_fields));
                 }else{
-                    Util.showProgressDialog(SignupActivity.this, "Signup Please wait");
+                    Util.showProgressDialog(SignupActivity.this, SignupActivity.this.getString(R.string.Signupplzw));
                     API.signUpUser(
                             fnameEt.getText().toString(), lnameEt.getText().toString(),
                                     emailEt.getText().toString(), passwordEt.getText().toString(),
@@ -56,7 +56,7 @@ public class SignupActivity extends AppCompatActivity {
                                 public void onResponse(JSONObject response) {
                                     try {
                                         if(response.getString("email")!=null){
-                                           Util.showToast(SignupActivity.this, "Sign up successfully");
+                                           Util.showToast(SignupActivity.this, SignupActivity.this.getString(R.string.successful_signup));
                                            Util.dismissProgressDialog();
                                            onBackPressed();
                                         }

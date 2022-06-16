@@ -62,7 +62,7 @@ public class SigninActivity extends AppCompatActivity {
                                             startActivity(new Intent(SigninActivity.this, HomeActivity.class));
                                         }else{
                                             Util.dismissProgressDialog();
-                                            Util.showToast(SigninActivity.this, "Access token not granted");
+                                            Util.showToast(SigninActivity.this, SigninActivity.this.getString(R.string.notgrantaccesstok));
                                         }
                                     } catch (JSONException e) {
                                         e.printStackTrace();

@@ -28,7 +28,7 @@ public class BestEventActivity extends AppCompatActivity {
         setContentView(R.layout.activity_best_event);
 
         init();
-        Util.showProgressDialog(BestEventActivity.this, "Getting best events\nPlease wait");
+        Util.showProgressDialog(BestEventActivity.this, BestEventActivity.this.getString(R.string.getbestevent));
         API.getAllEvents(BestEventActivity.this, new VolleyInterfaceArray() {
             @Override
             public void onError(String message) {

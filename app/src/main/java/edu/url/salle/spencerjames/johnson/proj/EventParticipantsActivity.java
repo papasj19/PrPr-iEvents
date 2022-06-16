@@ -32,7 +32,7 @@ public class EventParticipantsActivity extends AppCompatActivity {
 
         init();
         int eventId = getIntent().getIntExtra("index",0);
-        Util.showProgressDialog(EventParticipantsActivity.this, "Getting event participants\nPlease wait");
+        Util.showProgressDialog(EventParticipantsActivity.this, EventParticipantsActivity.this.getString(R.string.obtaineventparticip));
         API.getAllEventsParticipants(EventParticipantsActivity.this,eventId, new VolleyInterfaceArray() {
             @Override
             public void onError(String message) {
@@ -47,7 +47,7 @@ public class EventParticipantsActivity extends AppCompatActivity {
                     for(int i=0; i<response.length();i++){
                         JSONObject userJson = response.getJSONObject(i);
                         if(userJson.getString("email").equals(DataHolder.getInstance().userEmail)){
-                            attendingTv.setText("You are attending the event");
+                            attendingTv.setText(EventParticipantsActivity.this.getString(R.string.ATTENDINGEVENT));
                         }
                         usersList.add(new User(userJson.getString("name"), userJson.getString("last_name"),
                                 userJson.getString("email"), "",
