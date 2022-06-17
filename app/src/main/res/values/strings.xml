@@ -61,7 +61,7 @@
     <string name="eventcreatesucc">Event created successfully</string>
     <string name="eventtype">event type</string>
     <string name="eventname">event name</string>
-    <string name="Plzentkeyword">Please enter keyword first</string>
+    <string name="Plzentkeyword">Enter parameters first.</string>
     <string name="noeventsfound">No events found.</string>
     <string name="gettingeventinfo">Getting event info</string>
     <string name="location">location</string>
@@ -85,6 +85,9 @@
     <string name="SpecificandSearchEvent">Specific and Search Event</string>
     <string name="SearchSpecificeventbyID">Search Specific event by ID</string>
     <string name="noofparticipants">no of participants</string>
+    <string name="date">date</string>
     <string name="sendfrendreq">Send Friend Request</string>
+    <string name="profile_picture_desc">profile picture</string>
+    <string name="event_image_desc">event image</string>
 
 </resources>

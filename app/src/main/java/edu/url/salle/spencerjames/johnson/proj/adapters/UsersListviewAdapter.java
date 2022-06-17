@@ -26,8 +26,8 @@ import java.util.ArrayList;
 
 
 public class UsersListviewAdapter extends ArrayAdapter<User> {
-    Context context;
-    int type;
+    final Context context;
+    final int type;
     public UsersListviewAdapter(Context context, ArrayList<User> usersList, int type) {
         super(context, 0, usersList);
         this.context = context;
@@ -117,45 +117,40 @@ public class UsersListviewAdapter extends ArrayAdapter<User> {
                 friendRequestBtn.setText(R.string.sendfrendreq);
                 friendRequestBtn.setVisibility(View.VISIBLE);
                 friendReqDelBtn.setVisibility(View.GONE);
-                friendRequestBtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Util.showProgressDialog(context, context.getString(R.string.sendmfq));
-                        API.sendFriendRequest(context, userProfileInfo.id, new VolleyInterfaceObject() {
-                            @Override
-                            public void onError(String message) {
-                                Util.showToast(context, message);
-                                Util.dismissProgressDialog();
-                            }
 
-                            @Override
-                            public void onResponse(JSONObject response) {
-                                try {
-                                    if (response.getInt("affectedRows") > 0) {
-                                        Util.showToast(context, context.getString(R.string.succsend));
-                                        Util.dismissProgressDialog();
-                                    }
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                    Util.showToast(context, e.getLocalizedMessage());
+                friendRequestBtn.setOnClickListener(view -> {
+                    Util.showProgressDialog(context, context.getString(R.string.sendmfq));
+                    API.sendFriendRequest(context, userProfileInfo.id, new VolleyInterfaceObject() {
+                        @Override
+                        public void onError(String message) {
+                            Util.showToast(context, message);
+                            Util.dismissProgressDialog();
+                        }
+
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            try {
+                                if (response.getInt("affectedRows") > 0) {
+                                    Util.showToast(context, context.getString(R.string.succsend));
                                     Util.dismissProgressDialog();
                                 }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                                Util.showToast(context, e.getLocalizedMessage());
+                                Util.dismissProgressDialog();
                             }
-                        });
-                    }
+                        }
+                    });
                 });
                 break;
             case 3:
                 friendRequestBtn.setText(R.string.Openchat);
                 friendRequestBtn.setVisibility(View.VISIBLE);
                 friendReqDelBtn.setVisibility(View.GONE);
-                friendRequestBtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent(context, ChatActivity.class);
-                        intent.putExtra("id", userProfileInfo.id);
-                        context.startActivity(intent);
-                    }
+                friendRequestBtn.setOnClickListener(view -> {
+                    Intent intent = new Intent(context, ChatActivity.class);
+                    intent.putExtra("id", userProfileInfo.id);
+                    context.startActivity(intent);
                 });
                 break;
         }
