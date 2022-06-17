@@ -65,7 +65,7 @@ public class BestEventActivity extends AppCompatActivity {
     }
 
     private void setListview(){
-        EventsListviewAdapter eventsListviewAdapter = new EventsListviewAdapter(BestEventActivity.this, eventsList, 0);
+        EventsListviewAdapter eventsListviewAdapter = new EventsListviewAdapter(BestEventActivity.this, eventsList);
         eventsLv.setAdapter(eventsListviewAdapter);
     }
 }

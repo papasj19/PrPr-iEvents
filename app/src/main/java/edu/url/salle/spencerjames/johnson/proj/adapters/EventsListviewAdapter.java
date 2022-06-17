@@ -11,13 +11,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+
+import edu.url.salle.spencerjames.johnson.proj.EditActivity;
 import edu.url.salle.spencerjames.johnson.proj.EventParticipantsActivity;
+import edu.url.salle.spencerjames.johnson.proj.ModifyEventActivity;
 import edu.url.salle.spencerjames.johnson.proj.R;
 import edu.url.salle.spencerjames.johnson.proj.api.API;
+import edu.url.salle.spencerjames.johnson.proj.interfaces.VolleyInterfaceArray;
 import edu.url.salle.spencerjames.johnson.proj.interfaces.VolleyInterfaceObject;
+import edu.url.salle.spencerjames.johnson.proj.models.DataHolder;
 import edu.url.salle.spencerjames.johnson.proj.models.Event;
+import edu.url.salle.spencerjames.johnson.proj.models.User;
 import edu.url.salle.spencerjames.johnson.proj.utils.Util;
 
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -25,17 +33,16 @@ import java.util.ArrayList;
 
 public class EventsListviewAdapter extends ArrayAdapter<Event> {
     final Context context;
-    final int type;
-    public EventsListviewAdapter(Context context, ArrayList<Event> eventList, int type) {
+    public EventsListviewAdapter(Context context, ArrayList<Event> eventList) {
         super(context, 0, eventList);
         this.context = context;
-        this.type = type;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
         Event event = getItem(position);
+        User user = new User(0, "", "", "","", "");
         if (convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.event_viewholder, parent, false);
         }
@@ -49,8 +56,42 @@ public class EventsListviewAdapter extends ArrayAdapter<Event> {
             context.startActivity(intent);
         });
 
+        Button modifyBtn = convertView.findViewById(R.id.event_vh_btn_modify);
+
+        modifyBtn.setOnClickListener(view -> {
+            Intent intent = new Intent(context, ModifyEventActivity.class);
+            intent.putExtra("index", event.id);
+            context.startActivity(intent);
+        });
+
+        API.getUserBySearch(context, DataHolder.getInstance().userEmail, new VolleyInterfaceArray() {
+            @Override
+            public void onError(String message) {
+                Util.showToast(context, message);
+            }
+
+            @Override
+            public void onResponse(JSONArray response) {
+                try {
+                        JSONObject JSONuser = response.getJSONObject(0);
+                        if (event.ownerId == JSONuser.getInt("id")) {
+                          modifyBtn.setVisibility(View.VISIBLE);
+                        }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Util.showToast(context,"error: "+ e.getLocalizedMessage());
+                    Util.dismissProgressDialog();
+                }
+            }
+        });
+
+
+
+
+
         Button attendBtn = convertView.findViewById(R.id.event_vh_btn_attend);
         Button dropBtn = convertView.findViewById(R.id.event_vh_btn_drop);
+
 
         attendBtn.setOnClickListener(view -> {
             Util.showProgressDialog(context,context.getString(R.string.sendeventattendreq));

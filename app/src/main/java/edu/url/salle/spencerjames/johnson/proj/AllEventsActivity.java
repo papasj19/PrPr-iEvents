@@ -28,7 +28,8 @@ public class AllEventsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_events);
 
-        init();
+        eventsLv = findViewById(R.id.events_lv_events);
+
         Util.showProgressDialog(AllEventsActivity.this, AllEventsActivity.this.getString(R.string.getevents));
         API.getAllEvents(AllEventsActivity.this, new VolleyInterfaceArray() {
             @Override
@@ -61,12 +62,8 @@ public class AllEventsActivity extends AppCompatActivity {
 
     }
 
-    private void init(){
-        eventsLv = findViewById(R.id.events_lv_events);
-    }
-
     private void setListview(){
-        EventsListviewAdapter eventsListviewAdapter = new EventsListviewAdapter(AllEventsActivity.this, eventsList, 0);
+        EventsListviewAdapter eventsListviewAdapter = new EventsListviewAdapter(AllEventsActivity.this, eventsList);
         eventsLv.setAdapter(eventsListviewAdapter);
     }
 }

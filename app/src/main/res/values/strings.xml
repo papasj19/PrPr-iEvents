@@ -67,7 +67,7 @@
     <string name="location">location</string>
     <string name="description">description</string>
     <string name="eventstartdate">event start date</string>
-    <string name="eventenddate">event end dat</string>
+    <string name="eventenddate">event end date</string>
     <string name="CHAT_USERS">CHAT_USERS</string>
     <string name="typehere">type here</string>
     <string name="keyword">keyword</string>
@@ -89,5 +89,18 @@
     <string name="sendfrendreq">Send Friend Request</string>
     <string name="profile_picture_desc">profile picture</string>
     <string name="event_image_desc">event image</string>
+    <string name="title_activity_edit_event">EditEventActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="modify_event">Modify event</string>
+    <string name="profile_picture">profile picture</string>
+    <string name="event_info">Event info</string>
+    <string name="see_participants">See participants</string>
 
 </resources>

@@ -60,7 +60,7 @@ public abstract class API {
             @Override
             public Map<String, String> getHeaders() {
                 Map<String, String> headers = new HashMap<>();
-                headers.put("Authorization", "Bearer " + Config.accesstoken);
+                headers.put("Authorization", "Bearer " + Config.getAccesstoken());
                 return headers;
             }
         };
@@ -77,7 +77,7 @@ public abstract class API {
             @Override
             public Map<String, String> getHeaders() {
                 Map<String, String> headers = new HashMap<>();
-                headers.put("Authorization", "Bearer " + Config.accesstoken);
+                headers.put("Authorization", "Bearer " + Config.getAccesstoken());
                 return headers;
             }
         };
@@ -94,7 +94,7 @@ public abstract class API {
             @Override
             public Map<String, String> getHeaders() {
                 Map<String, String> headers = new HashMap<>();
-                headers.put("Authorization", "Bearer " + Config.accesstoken);
+                headers.put("Authorization", "Bearer " + Config.getAccesstoken());
                 return headers;
             }
         };
@@ -111,7 +111,7 @@ public abstract class API {
             @Override
             public Map<String, String> getHeaders() {
                 Map<String, String> headers = new HashMap<>();
-                headers.put("Authorization", "Bearer " + Config.accesstoken);
+                headers.put("Authorization", "Bearer " + Config.getAccesstoken());
                 return headers;
             }
         };
@@ -138,7 +138,7 @@ public abstract class API {
                 @Override
                 public Map<String, String> getHeaders() {
                     Map<String, String> headers = new HashMap<>();
-                    headers.put("Authorization", "Bearer " + Config.accesstoken);
+                    headers.put("Authorization", "Bearer " + Config.getAccesstoken());
                     return headers;
                 }
         };
@@ -155,7 +155,7 @@ public abstract class API {
             @Override
             public Map<String, String> getHeaders() {
                 Map<String, String> headers = new HashMap<>();
-                headers.put("Authorization", "Bearer " + Config.accesstoken);
+                headers.put("Authorization", "Bearer " + Config.getAccesstoken());
                 return headers;
             }
         };
@@ -171,7 +171,7 @@ public abstract class API {
             @Override
             public Map<String, String> getHeaders() {
                 Map<String, String> headers = new HashMap<>();
-                headers.put("Authorization", "Bearer " + Config.accesstoken);
+                headers.put("Authorization", "Bearer " + Config.getAccesstoken());
                 return headers;
             }
         };
@@ -188,7 +188,7 @@ public abstract class API {
             @Override
             public Map<String, String> getHeaders() {
                 Map<String, String> headers = new HashMap<>();
-                headers.put("Authorization", "Bearer " + Config.accesstoken);
+                headers.put("Authorization", "Bearer " + Config.getAccesstoken());
                 return headers;
             }
         };
@@ -206,7 +206,7 @@ public abstract class API {
             @Override
             public Map<String, String> getHeaders() {
                 Map<String, String> headers = new HashMap<>();
-                headers.put("Authorization", "Bearer " + Config.accesstoken);
+                headers.put("Authorization", "Bearer " + Config.getAccesstoken());
                 return headers;
             }
         };
@@ -223,7 +223,7 @@ public abstract class API {
             @Override
             public Map<String, String> getHeaders() {
                 Map<String, String> headers = new HashMap<>();
-                headers.put("Authorization", "Bearer " + Config.accesstoken);
+                headers.put("Authorization", "Bearer " + Config.getAccesstoken());
                 return headers;
             }
         };
@@ -257,7 +257,7 @@ public abstract class API {
             @Override
             public Map<String, String> getHeaders() {
                 Map<String, String> headers = new HashMap<>();
-                headers.put("Authorization", "Bearer " + Config.accesstoken);
+                headers.put("Authorization", "Bearer " + Config.getAccesstoken());
                 return headers;
             }
         };
@@ -274,7 +274,7 @@ public abstract class API {
             @Override
             public Map<String, String> getHeaders() {
                 Map<String, String> headers = new HashMap<>();
-                headers.put("Authorization", "Bearer " + Config.accesstoken);
+                headers.put("Authorization", "Bearer " + Config.getAccesstoken());
                 return headers;
             }
         };
@@ -290,7 +290,7 @@ public abstract class API {
             @Override
             public Map<String, String> getHeaders() {
                 Map<String, String> headers = new HashMap<>();
-                headers.put("Authorization", "Bearer " + Config.accesstoken);
+                headers.put("Authorization", "Bearer " + Config.getAccesstoken());
                 return headers;
             }
         };
@@ -307,7 +307,7 @@ public abstract class API {
             @Override
             public Map<String, String> getHeaders() {
                 Map<String, String> headers = new HashMap<>();
-                headers.put("Authorization", "Bearer " + Config.accesstoken);
+                headers.put("Authorization", "Bearer " + Config.getAccesstoken());
                 return headers;
             }
         };
@@ -315,7 +315,7 @@ public abstract class API {
         rQ.add(SingUpUserRequest);
     }
 
-    public static void updateEvent(Context context,Event event, int eventId, final VolleyInterfaceObject volleyInterfaceObject) {
+    public static void updateEvent(Context context, Event event, int eventId, final VolleyInterfaceObject volleyInterfaceObject) {
         HashMap<String, Object> params = new HashMap<>();
 
         params.put("name", event.name);
@@ -327,7 +327,6 @@ public abstract class API {
         params.put("n_participators", event.n_participators);
         params.put("image", event.image);
 
-
         JsonObjectRequest SingUpUserRequest = new JsonObjectRequest(Request.Method.PUT,  baseUrl+"/events/"+eventId, new JSONObject(params),
                 volleyInterfaceObject::onResponse,
                 error -> volleyInterfaceObject.onError(Util.parseVolleyError(error))
@@ -335,7 +334,7 @@ public abstract class API {
             @Override
             public Map<String, String> getHeaders() {
                 Map<String, String> headers = new HashMap<>();
-                headers.put("Authorization", "Bearer " + Config.accesstoken);
+                headers.put("Authorization", "Bearer " + Config.getAccesstoken());
                 return headers;
             }
         };
@@ -352,7 +351,7 @@ public abstract class API {
             @Override
             public Map<String, String> getHeaders() {
                 Map<String, String> headers = new HashMap<>();
-                headers.put("Authorization", "Bearer " + Config.accesstoken);
+                headers.put("Authorization", "Bearer " + Config.getAccesstoken());
                 return headers;
             }
         };
@@ -369,7 +368,7 @@ public abstract class API {
             @Override
             public Map<String, String> getHeaders() {
                 Map<String, String> headers = new HashMap<>();
-                headers.put("Authorization", "Bearer " + Config.accesstoken);
+                headers.put("Authorization", "Bearer " + Config.getAccesstoken());
                 return headers;
             }
         };
@@ -385,7 +384,7 @@ public abstract class API {
             @Override
             public Map<String, String> getHeaders() {
                 Map<String, String> headers = new HashMap<>();
-                headers.put("Authorization", "Bearer " + Config.accesstoken);
+                headers.put("Authorization", "Bearer " + Config.getAccesstoken());
                 return headers;
             }
         };
@@ -403,7 +402,7 @@ public abstract class API {
             @Override
             public Map<String, String> getHeaders() {
                 Map<String, String> headers = new HashMap<>();
-                headers.put("Authorization", "Bearer " + Config.accesstoken);
+                headers.put("Authorization", "Bearer " + Config.getAccesstoken());
                 return headers;
             }
         };
@@ -420,7 +419,7 @@ public abstract class API {
             @Override
             public Map<String, String> getHeaders() {
                 Map<String, String> headers = new HashMap<>();
-                headers.put("Authorization", "Bearer " + Config.accesstoken);
+                headers.put("Authorization", "Bearer " + Config.getAccesstoken());
                 return headers;
             }
         };
@@ -446,7 +445,7 @@ public abstract class API {
             @Override
             public Map<String, String> getHeaders() {
                 Map<String, String> headers = new HashMap<>();
-                headers.put("Authorization", "Bearer " + Config.accesstoken);
+                headers.put("Authorization", "Bearer " + Config.getAccesstoken());
                 return headers;
             }
         };

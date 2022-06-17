@@ -52,7 +52,7 @@ public class SigninActivity extends AppCompatActivity {
                             public void onResponse(JSONObject response) {
                                 try {
                                     response.getString("accessToken");
-                                    Config.accesstoken = response.getString("accessToken");
+                                    Config.setAccesstoken(response.getString("accessToken"));
                                     DataHolder.getInstance().userEmail = emailEt.getText().toString();
                                     Util.showToast(SigninActivity.this, SigninActivity.this.getString(R.string.successful_signin));
                                     Util.dismissProgressDialog();
