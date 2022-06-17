@@ -9,9 +9,12 @@
 
     <EditText
         android:id="@+id/create_et_image"
+        android:background="@drawable/edit_text_rounded"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_height="36dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="@string/imgurl"
         android:inputType="textPersonName"
@@ -22,9 +25,12 @@
 
     <EditText
         android:id="@+id/create_et_type"
+        android:background="@drawable/edit_text_rounded"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_height="36dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="@string/eventtype"
         android:inputType="textPersonName"
@@ -35,9 +41,12 @@
 
     <EditText
         android:id="@+id/create_et_name"
+        android:background="@drawable/edit_text_rounded"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_height="36dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="@string/eventname"
         android:inputType="textPersonName"
@@ -48,9 +57,12 @@
 
     <EditText
         android:id="@+id/create_et_location"
+        android:background="@drawable/edit_text_rounded"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_height="36dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="@string/location"
         android:inputType="textPersonName"
@@ -61,9 +73,12 @@
 
     <EditText
         android:id="@+id/create_et_description"
+        android:background="@drawable/edit_text_rounded"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_height="36dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="@string/description"
         android:inputType="textPersonName"
@@ -74,9 +89,12 @@
 
     <EditText
         android:id="@+id/create_et_startdate"
+        android:background="@drawable/edit_text_rounded"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_height="36dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="@string/eventstartdate"
         android:inputType="textPersonName"
@@ -87,9 +105,12 @@
 
     <EditText
         android:id="@+id/create_et_enddate"
+        android:background="@drawable/edit_text_rounded"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_height="36dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="@string/eventenddate"
         android:inputType="textPersonName"
@@ -105,15 +126,19 @@
         android:layout_marginBottom="8dp"
         android:background="@drawable/roundedbtn"
         android:text="@string/Create_Event"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/create_et_noofparticipants"
+        android:background="@drawable/edit_text_rounded"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_height="36dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="@string/noofparticipants"
         android:inputType="textPersonName"

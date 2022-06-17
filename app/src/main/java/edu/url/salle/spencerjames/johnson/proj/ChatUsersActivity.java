@@ -64,7 +64,7 @@ public class ChatUsersActivity extends AppCompatActivity {
     }
 
     private void setListview(){
-        UsersListviewAdapter usersListviewAdapter = new UsersListviewAdapter(ChatUsersActivity.this, usersList, 0);
+        UsersListviewAdapter usersListviewAdapter = new UsersListviewAdapter(ChatUsersActivity.this, usersList, 3);
         usersLv.setAdapter(usersListviewAdapter);
     }
 }

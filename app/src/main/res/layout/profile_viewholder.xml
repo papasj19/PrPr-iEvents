@@ -37,7 +37,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="TextView"
+                android:text=""
                 app:layout_constraintBottom_toTopOf="@+id/vh_btn_sendfriendrequest"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/profile_vh_iv_img"
@@ -46,7 +46,8 @@
             <Button
                 android:id="@+id/vh_btn_sendfriendrequest"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="36dp"
+                android:background="@drawable/roundedbtn_small"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:text="@string/SendFriendRequest"
@@ -59,7 +60,8 @@
             <Button
                 android:id="@+id/vh_btn_deletefriendrequest"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="36dp"
+                android:background="@drawable/roundedbtn_small"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="8dp"
                 android:text="@string/Reject"

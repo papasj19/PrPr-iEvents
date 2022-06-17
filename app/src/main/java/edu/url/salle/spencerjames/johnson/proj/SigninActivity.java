@@ -31,9 +31,10 @@ public class SigninActivity extends AppCompatActivity {
         passwordEt = findViewById(R.id.signin_et_password);
 
         findViewById(R.id.signin_btn_signin).setOnClickListener(view -> {
-            if(Util.isEditTextEmpty(emailEt) || Util.isEditTextEmpty(passwordEt)){
+            if (Util.isEditTextEmpty(emailEt) || Util.isEditTextEmpty(passwordEt)) {
                 Util.showToast(SigninActivity.this, SigninActivity.this.getString(R.string.empty_fields));
-            } else {
+            }
+            else {
                 Util.showProgressDialog(SigninActivity.this, SigninActivity.this.getString(R.string.Signinplzw));
                 API.loginUser(SigninActivity.this,
                         emailEt.getText().toString(),
@@ -54,7 +55,6 @@ public class SigninActivity extends AppCompatActivity {
                                     Config.accesstoken = response.getString("accessToken");
                                     DataHolder.getInstance().userEmail = emailEt.getText().toString();
                                     Util.showToast(SigninActivity.this, SigninActivity.this.getString(R.string.successful_signin));
-                                    //Util.showToast(SigninActivity.this, R.string.successful_signin);
                                     Util.dismissProgressDialog();
                                     startActivity(new Intent(SigninActivity.this, HomeActivity.class));
                                 } catch (JSONException e) {
@@ -64,7 +64,6 @@ public class SigninActivity extends AppCompatActivity {
                                 }
                             }
                         });
-
             }
         });
     }

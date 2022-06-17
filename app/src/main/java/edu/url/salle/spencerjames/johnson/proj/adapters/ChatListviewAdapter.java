@@ -34,10 +34,10 @@ public class ChatListviewAdapter extends ArrayAdapter<Message> {
         TextView contentTv = convertView.findViewById(R.id.message_vh_tv_content);
 
         if(message.user_id_send==userId){
-            contentTv.setText("Send by You\n"+ message.content);
+            contentTv.setText("Sent by You\n"+ message.content);
             contentTv.setGravity(Gravity.END);
         }else{
-            contentTv.setText("Send by User\n"+ message.content);
+            contentTv.setText("Sent by User" + message.user_id_send + "\n"+ message.content);
             contentTv.setGravity(Gravity.START);
         }
 

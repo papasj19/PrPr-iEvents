@@ -14,6 +14,7 @@
         android:layout_marginBottom="48dp"
         android:background="@drawable/roundedbtn"
         android:text="@string/Signin"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -25,6 +26,7 @@
         android:layout_marginBottom="24dp"
         android:background="@drawable/roundedbtn"
         android:text="@string/Signup"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/main_btn_signin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

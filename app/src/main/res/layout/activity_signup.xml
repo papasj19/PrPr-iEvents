@@ -9,8 +9,11 @@
 
     <EditText
         android:id="@+id/signup_et_img"
+        android:background="@drawable/edit_text_rounded"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="36dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:layout_marginBottom="32dp"
         android:ems="10"
         android:hint="@string/imgurl"
@@ -22,8 +25,11 @@
 
     <EditText
         android:id="@+id/signup_et_fname"
+        android:background="@drawable/edit_text_rounded"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="36dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="@string/firstname"
@@ -35,8 +41,11 @@
 
     <EditText
         android:id="@+id/signup_et_lname"
+        android:background="@drawable/edit_text_rounded"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="36dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="@string/lastname"
@@ -48,12 +57,15 @@
 
     <EditText
         android:id="@+id/signup_et_password"
+        android:background="@drawable/edit_text_rounded"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="36dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="@string/password"
-        android:inputType="textPersonName"
+        android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/signup_et_img"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -66,18 +78,22 @@
         android:background="@drawable/roundedbtn"
         android:layout_marginBottom="48dp"
         android:text="@string/Signup"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/signup_et_email"
+        android:background="@drawable/edit_text_rounded"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="36dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="@string/email"
-        android:inputType="textPersonName"
+        android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/signup_et_password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

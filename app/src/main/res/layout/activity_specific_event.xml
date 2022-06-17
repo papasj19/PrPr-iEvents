@@ -20,10 +20,13 @@
 
     <EditText
         android:id="@+id/specific_et_id"
+        android:background="@drawable/edit_text_rounded"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="36dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:layout_marginTop="24dp"
-        android:ems="10"
+        android:layout_marginBottom="8dp"
         android:hint="@string/Event_id"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,8 +36,9 @@
     <Button
         android:id="@+id/specific_btn_id"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_height="36dp"
+        android:background="@drawable/roundedbtn_small"
+        android:layout_marginTop="16dp"
         android:text="@string/SearchSpecificeventbyID"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,8 +46,11 @@
 
     <EditText
         android:id="@+id/specific_et_search_keyword"
+        android:background="@drawable/edit_text_rounded"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="36dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:layout_marginTop="24dp"
         android:ems="10"
         android:hint="@string/keyword"
@@ -54,8 +61,11 @@
 
     <EditText
         android:id="@+id/specific_et_search_location"
+        android:background="@drawable/edit_text_rounded"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="36dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="@string/location"
@@ -66,27 +76,32 @@
 
     <EditText
         android:id="@+id/specific_et_search_date"
+        android:background="@drawable/edit_text_rounded"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="36dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="@string/date"
         android:inputType="datetime"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/specific_btn_search"
         app:layout_constraintTop_toBottomOf="@+id/specific_et_search_location" />
 
     <Button
         android:id="@+id/specific_btn_search"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_height="36dp"
+        android:background="@drawable/roundedbtn_small"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="24dp"
         android:text="@string/SearchEvent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/specific_et_search_date"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/specific_et_search_date" />
 
     <ScrollView
         android:layout_width="0dp"
