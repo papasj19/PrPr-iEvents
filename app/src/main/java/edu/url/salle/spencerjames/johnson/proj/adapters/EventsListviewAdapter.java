@@ -60,7 +60,7 @@ public class EventsListviewAdapter extends ArrayAdapter<Event> {
         attendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Util.showProgressDialog(context,R.string.sendeventattendreq);
+                Util.showProgressDialog(context,context.getString(R.string.sendeventattendreq));
                 API.attendEvent(context, event.id, new VolleyInterfaceObject() {
                     @Override
                     public void onError(String message) {
@@ -72,7 +72,7 @@ public class EventsListviewAdapter extends ArrayAdapter<Event> {
                     @Override
                     public void onResponse(JSONObject response) {
                         if(response!=null){
-                            Util.showToast(context,R.string.eventattnsuccss);
+                            Util.showToast(context,context.getString(R.string.eventattnsuccss));
                             Util.dismissProgressDialog();
                             attendBtn.setVisibility(View.INVISIBLE);
                             dropBtn.setVisibility(View.VISIBLE);
@@ -87,7 +87,7 @@ public class EventsListviewAdapter extends ArrayAdapter<Event> {
         dropBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Util.showProgressDialog(context,R.string.eventdropreqplzw);
+                Util.showProgressDialog(context,context.getString(R.string.eventdropreqplzw));
                 API.dropEvent(context, event.id, new VolleyInterfaceObject() {
                     @Override
                     public void onError(String message) {
@@ -99,7 +99,7 @@ public class EventsListviewAdapter extends ArrayAdapter<Event> {
                     @Override
                     public void onResponse(JSONObject response) {
                         if(response!=null){
-                            Util.showToast(context,R.string.eventdropsuccss);
+                            Util.showToast(context,context.getString(R.string.eventdropsuccss));
                             Util.dismissProgressDialog();
                             dropBtn.setVisibility(View.INVISIBLE);
                             attendBtn.setVisibility(View.VISIBLE);

@@ -64,7 +64,7 @@ public class UsersListviewAdapter extends ArrayAdapter<User> {
                 friendReqDelBtn.setVisibility(View.VISIBLE);
 
                 friendRequestBtn.setOnClickListener(view -> {
-                    Util.showProgressDialog(context, UsersListviewAdapter.this.getString(R.string.acceptfrdreqplzw));
+                    Util.showProgressDialog(context,  context.getString(R.string.acceptfrdreqplzw));
                     API.acceptFriendRequest(context, userProfileInfo.id, new VolleyInterfaceObject() {
                         @Override
                         public void onError(String message) {
@@ -76,7 +76,7 @@ public class UsersListviewAdapter extends ArrayAdapter<User> {
                         public void onResponse(JSONObject response) {
                             try {
                                 if (response.getInt("affectedRows") > 0) {
-                                    Util.showToast(context, toString(R.string.succacc));
+                                    Util.showToast(context, context.getString(R.string.succacc));
                                     Util.dismissProgressDialog();
                                 }
                             } catch (JSONException e) {
@@ -89,7 +89,7 @@ public class UsersListviewAdapter extends ArrayAdapter<User> {
                 });
 
                 friendReqDelBtn.setOnClickListener(view -> {
-                    Util.showProgressDialog(context, R.string.delfrndreq);
+                    Util.showProgressDialog(context, context.getString(R.string.delfrndreq));
                     API.deleteFriendRequest(context, userProfileInfo.id, new VolleyInterfaceObject() {
                         @Override
                         public void onError(String message) {
@@ -101,7 +101,7 @@ public class UsersListviewAdapter extends ArrayAdapter<User> {
                         public void onResponse(JSONObject response) {
                             try {
                                 if (response.getInt("affectedRows") > 0) {
-                                    Util.showToast(context, R.string.succdel);
+                                    Util.showToast(context, context.getString(R.string.succdel));
                                     Util.dismissProgressDialog();
                                 }
                             } catch (JSONException e) {
@@ -114,13 +114,13 @@ public class UsersListviewAdapter extends ArrayAdapter<User> {
                 });
                 break;
             case 0:
-                friendRequestBtn.setText("Send Friend Request");
+                friendRequestBtn.setText(R.string.sendfrendreq);
                 friendRequestBtn.setVisibility(View.VISIBLE);
                 friendReqDelBtn.setVisibility(View.GONE);
                 friendRequestBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Util.showProgressDialog(context, R.string.sendmfq);
+                        Util.showProgressDialog(context, context.getString(R.string.sendmfq));
                         API.sendFriendRequest(context, userProfileInfo.id, new VolleyInterfaceObject() {
                             @Override
                             public void onError(String message) {
@@ -132,7 +132,7 @@ public class UsersListviewAdapter extends ArrayAdapter<User> {
                             public void onResponse(JSONObject response) {
                                 try {
                                     if (response.getInt("affectedRows") > 0) {
-                                        Util.showToast(context, R.string.succsend);
+                                        Util.showToast(context, context.getString(R.string.succsend));
                                         Util.dismissProgressDialog();
                                     }
                                 } catch (JSONException e) {
