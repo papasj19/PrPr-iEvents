@@ -53,19 +53,18 @@ public class EventsListviewAdapter extends ArrayAdapter<Event> {
         Button dropBtn = convertView.findViewById(R.id.event_vh_btn_drop);
 
         attendBtn.setOnClickListener(view -> {
-            Util.showProgressDialog(context,"Sending event attend request\nplease wait");
+            Util.showProgressDialog(context,context.getString(R.string.sendeventattendreq));
             API.attendEvent(context, event.id, new VolleyInterfaceObject() {
                 @Override
                 public void onError(String message) {
                     Util.showToast(context,message);
                     Util.dismissProgressDialog();
-
                 }
 
                 @Override
                 public void onResponse(JSONObject response) {
                     if(response!=null){
-                        Util.showToast(context,"Event attend successfully");
+                        Util.showToast(context,context.getString(R.string.eventattnsuccss));
                         Util.dismissProgressDialog();
                         attendBtn.setVisibility(View.INVISIBLE);
                         dropBtn.setVisibility(View.VISIBLE);
@@ -74,22 +73,20 @@ public class EventsListviewAdapter extends ArrayAdapter<Event> {
             });
         });
 
-
-
         dropBtn.setOnClickListener(view -> {
-            Util.showProgressDialog(context,"Sending event drop request\nplease wait");
+            Util.showProgressDialog(context,context.getString(R.string.eventdropreqplzw));
             API.dropEvent(context, event.id, new VolleyInterfaceObject() {
                 @Override
                 public void onError(String message) {
                     Util.showToast(context,message);
                     Util.dismissProgressDialog();
-
                 }
+
 
                 @Override
                 public void onResponse(JSONObject response) {
                     if(response!=null){
-                        Util.showToast(context,"Event drop successfully");
+                        Util.showToast(context,context.getString(R.string.eventdropsuccss));
                         Util.dismissProgressDialog();
                         dropBtn.setVisibility(View.INVISIBLE);
                         attendBtn.setVisibility(View.VISIBLE);

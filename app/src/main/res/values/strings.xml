@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">iEvents</string>
     <string name="UpperFriends">FRIENDS</string>
+    <string name="Decline">Decline</string>
+    <string name="accept">Accept</string>
     <string name="Friends">Friends</string>
     <string name="FRIENDSREQUESTS">FRIEND REQUESTS</string>
     <string name="Users">Users</string>
@@ -16,6 +18,7 @@
     <string name="NOTATTENDEVENT">You are not attending the event</string>
     <string name="ATTENDINGEVENT">You are attending the event</string>
     <string name="getbestevent">Getting best events\nPlease wait</string>
+    <string name="delfrndreq">Deleting friend request\nPlease wait</string>
     <string name="getevents">Getting events\nPlease wait</string>
     <string name="createevent">Creating event\nPlease wait</string>
     <string name="obtainamigos">Getting friends\nPlease wait</string>
@@ -23,6 +26,10 @@
     <string name="obtainusers">Getting users\nPlease wait</string>
     <string name="obtainmessag">Getting messages\nPlease wait</string>
     <string name="sendmessag">Sending message\nPlease wait</string>
+    <string name="sendeventattendreq">Sending event attend request\nPlease wait</string>
+    <string name="sendmfq">Sending friend request\nPlease wait</string>
+    <string name="acceptfrdreqplzw">Accepting friend request\nPlease wait</string>
+    <string name="eventdropreqplzw">Sending event drop request\nPlease wait</string>
     <string name="successful_sendmess">Message sent successfully</string>
     <string name="Writemessfirst">Write message first</string>
     <string name="obtaineventparticip">Getting event participants\nPlease wait</string>
@@ -36,6 +43,13 @@
     <string name="successful_signin">Signed in successfully</string>
     <string name="successful_signup">Signed up successfully</string>
     <string name="updatesucc">Updated successfully</string>
+    <string name="succacc">Accepted Successfully</string>
+    <string name="succdel">Deleted Successfully</string>
+    <string name="succsend">Sent Successfully</string>
+    <string name="eventattnsuccss">Event attend Successfully</string>
+    <string name="eventdropsuccss">Event drop Successfully</string>
+
+    <string name="Openchat">Open Chat</string>
     <string name="imgurl">img url</string>
     <string name="usernoexistwithemailandpass">A user does not exist with that email and password</string>
     <string name="firstname">first name</string>
@@ -64,6 +78,7 @@
     <string name="SearchEvent">Search Event</string>
     <string name="DropEvent">Drop Event</string>
     <string name="Reject">Reject</string>
+    <string name="Profile">Profile</string>
     <string name="SendFriendRequest">Send Friend Request</string>
     <string name="Seeparticipants">See participants</string>
     <string name="Attendevent">Attend event</string>
@@ -71,6 +86,7 @@
     <string name="SearchSpecificeventbyID">Search Specific event by ID</string>
     <string name="noofparticipants">no of participants</string>
     <string name="date">date</string>
+    <string name="sendfrendreq">Send Friend Request</string>
     <string name="profile_picture_desc">profile picture</string>
     <string name="event_image_desc">event image</string>
 

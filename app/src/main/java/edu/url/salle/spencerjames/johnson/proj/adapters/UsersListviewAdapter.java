@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import edu.url.salle.spencerjames.johnson.proj.ChatActivity;
 import edu.url.salle.spencerjames.johnson.proj.R;
+import edu.url.salle.spencerjames.johnson.proj.UserProfileActivity;
 import edu.url.salle.spencerjames.johnson.proj.api.API;
 import edu.url.salle.spencerjames.johnson.proj.interfaces.VolleyInterfaceObject;
 import edu.url.salle.spencerjames.johnson.proj.models.User;
@@ -45,16 +46,25 @@ public class UsersListviewAdapter extends ArrayAdapter<User> {
         ImageView imageIv = convertView.findViewById(R.id.profile_vh_iv_img);
         Button friendRequestBtn = convertView.findViewById(R.id.vh_btn_sendfriendrequest);
         Button friendReqDelBtn = convertView.findViewById(R.id.vh_btn_deletefriendrequest);
+        Button viewProfileBtn = convertView.findViewById(R.id.vh_btn_gotoprofile);
+        viewProfileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, UserProfileActivity.class);
+                intent.putExtra("id", userProfileInfo.id);
+                context.startActivity(intent);
+            }
+        });
 
         switch (type) {
             case 1:
-                friendRequestBtn.setText("Accept");
+                friendRequestBtn.setText(R.string.accept);
                 friendRequestBtn.setVisibility(View.VISIBLE);
-                friendReqDelBtn.setText("Decline");
+                friendReqDelBtn.setText(R.string.Decline);
                 friendReqDelBtn.setVisibility(View.VISIBLE);
 
                 friendRequestBtn.setOnClickListener(view -> {
-                    Util.showProgressDialog(context, "Accepting friend request\nPlease wait");
+                    Util.showProgressDialog(context,  context.getString(R.string.acceptfrdreqplzw));
                     API.acceptFriendRequest(context, userProfileInfo.id, new VolleyInterfaceObject() {
                         @Override
                         public void onError(String message) {
@@ -66,7 +76,7 @@ public class UsersListviewAdapter extends ArrayAdapter<User> {
                         public void onResponse(JSONObject response) {
                             try {
                                 if (response.getInt("affectedRows") > 0) {
-                                    Util.showToast(context, "Accepted Successfully");
+                                    Util.showToast(context, context.getString(R.string.succacc));
                                     Util.dismissProgressDialog();
                                 }
                             } catch (JSONException e) {
@@ -79,7 +89,7 @@ public class UsersListviewAdapter extends ArrayAdapter<User> {
                 });
 
                 friendReqDelBtn.setOnClickListener(view -> {
-                    Util.showProgressDialog(context, "Deleting friend request\nPlease wait");
+                    Util.showProgressDialog(context, context.getString(R.string.delfrndreq));
                     API.deleteFriendRequest(context, userProfileInfo.id, new VolleyInterfaceObject() {
                         @Override
                         public void onError(String message) {
@@ -91,7 +101,7 @@ public class UsersListviewAdapter extends ArrayAdapter<User> {
                         public void onResponse(JSONObject response) {
                             try {
                                 if (response.getInt("affectedRows") > 0) {
-                                    Util.showToast(context, "Deleted Successfully");
+                                    Util.showToast(context, context.getString(R.string.succdel));
                                     Util.dismissProgressDialog();
                                 }
                             } catch (JSONException e) {
@@ -104,11 +114,12 @@ public class UsersListviewAdapter extends ArrayAdapter<User> {
                 });
                 break;
             case 0:
-                friendRequestBtn.setText("Send Friend Request");
+                friendRequestBtn.setText(R.string.sendfrendreq);
                 friendRequestBtn.setVisibility(View.VISIBLE);
                 friendReqDelBtn.setVisibility(View.GONE);
+
                 friendRequestBtn.setOnClickListener(view -> {
-                    Util.showProgressDialog(context, "Sending friend request\nPlease wait");
+                    Util.showProgressDialog(context, context.getString(R.string.sendmfq));
                     API.sendFriendRequest(context, userProfileInfo.id, new VolleyInterfaceObject() {
                         @Override
                         public void onError(String message) {
@@ -120,7 +131,7 @@ public class UsersListviewAdapter extends ArrayAdapter<User> {
                         public void onResponse(JSONObject response) {
                             try {
                                 if (response.getInt("affectedRows") > 0) {
-                                    Util.showToast(context, "Sent Successfully");
+                                    Util.showToast(context, context.getString(R.string.succsend));
                                     Util.dismissProgressDialog();
                                 }
                             } catch (JSONException e) {
@@ -133,7 +144,7 @@ public class UsersListviewAdapter extends ArrayAdapter<User> {
                 });
                 break;
             case 3:
-                friendRequestBtn.setText("Open Chat");
+                friendRequestBtn.setText(R.string.Openchat);
                 friendRequestBtn.setVisibility(View.VISIBLE);
                 friendReqDelBtn.setVisibility(View.GONE);
                 friendRequestBtn.setOnClickListener(view -> {
@@ -151,7 +162,7 @@ public class UsersListviewAdapter extends ArrayAdapter<User> {
         +"Last name: "+userProfileInfo.last_name+"\n");
 
 
-        if(userProfileInfo.Image!=null)
+        if(userProfileInfo.Image != null)
             Glide.with(context).load(userProfileInfo.Image).placeholder(R.drawable.profilepicplaceholder).into(imageIv);
 
 
