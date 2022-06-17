@@ -52,7 +52,7 @@ public class SpecificEventActivity extends AppCompatActivity {
         });
 
         findViewById(R.id.specific_btn_search).setOnClickListener(view -> {
-            if(Util.isEditTextEmpty(searchEtKeyword)){
+            if(Util.isEditTextEmpty(searchEtKeyword) && Util.isEditTextEmpty(searchEtLocation) && Util.isEditTextEmpty(searchEtDate)){
                 Util.showToast(SpecificEventActivity.this, SpecificEventActivity.this.getString(R.string.Plzentkeyword));
             }else{
                 eventInfoTv.setText("");

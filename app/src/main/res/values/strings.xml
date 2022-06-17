@@ -47,7 +47,7 @@
     <string name="eventcreatesucc">Event created successfully</string>
     <string name="eventtype">event type</string>
     <string name="eventname">event name</string>
-    <string name="Plzentkeyword">Please enter keyword first</string>
+    <string name="Plzentkeyword">Enter parameters first.</string>
     <string name="noeventsfound">No events found.</string>
     <string name="gettingeventinfo">Getting event info</string>
     <string name="location">location</string>
