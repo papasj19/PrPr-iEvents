@@ -67,17 +67,20 @@ public class UserProfileActivity extends AppCompatActivity {
         });
 
         if(userDisplay.Image != null && userDisplay != null) {
-            Glide.with(UserProfileActivity.this).load(userDisplay.Image).placeholder(R.drawable.profilepicplaceholder).into(picture);
+            //Glide.with(UserProfileActivity.this).load(userDisplay.Image).placeholder(R.drawable.profilepicplaceholder).into(picture);
         }
 
-        firstName = findViewById(R.id.firstname);
+        if(userDisplay != null){
+        firstName = (TextView) findViewById(R.id.firstname);
         firstName.setText(userDisplay.name);
-        lastName = findViewById(R.id.lastname);
+        lastName = (TextView)findViewById(R.id.lastname);
         lastName.setText(userDisplay.last_name);
-        email = findViewById(R.id.email);
+        email = (TextView)findViewById(R.id.email);
         email.setText(userDisplay.email);
-        userID = findViewById(R.id.id);
-        userID.setText(userDisplay.id);
+        userID = (TextView)findViewById(R.id.id);
+        userID.setText(userDisplay.id);}else{
+            Util.showToast(UserProfileActivity.this, "somethin fucked up");
+        }
 
     }
 }

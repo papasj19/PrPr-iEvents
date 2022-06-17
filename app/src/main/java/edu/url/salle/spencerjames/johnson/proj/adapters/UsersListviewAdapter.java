@@ -58,13 +58,13 @@ public class UsersListviewAdapter extends ArrayAdapter<User> {
 
         switch (type) {
             case 1:
-                friendRequestBtn.setText("Accept");
+                friendRequestBtn.setText(R.string.accept);
                 friendRequestBtn.setVisibility(View.VISIBLE);
-                friendReqDelBtn.setText("Decline");
+                friendReqDelBtn.setText(R.string.Decline);
                 friendReqDelBtn.setVisibility(View.VISIBLE);
 
                 friendRequestBtn.setOnClickListener(view -> {
-                    Util.showProgressDialog(context, "Accepting friend request\nPlease wait");
+                    Util.showProgressDialog(context, UsersListviewAdapter.this.getString(R.string.acceptfrdreqplzw));
                     API.acceptFriendRequest(context, userProfileInfo.id, new VolleyInterfaceObject() {
                         @Override
                         public void onError(String message) {
@@ -76,7 +76,7 @@ public class UsersListviewAdapter extends ArrayAdapter<User> {
                         public void onResponse(JSONObject response) {
                             try {
                                 if (response.getInt("affectedRows") > 0) {
-                                    Util.showToast(context, "Accepted Successfully");
+                                    Util.showToast(context, toString(R.string.succacc));
                                     Util.dismissProgressDialog();
                                 }
                             } catch (JSONException e) {
@@ -89,7 +89,7 @@ public class UsersListviewAdapter extends ArrayAdapter<User> {
                 });
 
                 friendReqDelBtn.setOnClickListener(view -> {
-                    Util.showProgressDialog(context, "Deleting friend request\nPlease wait");
+                    Util.showProgressDialog(context, R.string.delfrndreq);
                     API.deleteFriendRequest(context, userProfileInfo.id, new VolleyInterfaceObject() {
                         @Override
                         public void onError(String message) {
@@ -101,7 +101,7 @@ public class UsersListviewAdapter extends ArrayAdapter<User> {
                         public void onResponse(JSONObject response) {
                             try {
                                 if (response.getInt("affectedRows") > 0) {
-                                    Util.showToast(context, "Deleted Successfully");
+                                    Util.showToast(context, R.string.succdel);
                                     Util.dismissProgressDialog();
                                 }
                             } catch (JSONException e) {
@@ -120,7 +120,7 @@ public class UsersListviewAdapter extends ArrayAdapter<User> {
                 friendRequestBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Util.showProgressDialog(context, "Sending friend request\nPlease wait");
+                        Util.showProgressDialog(context, R.string.sendmfq);
                         API.sendFriendRequest(context, userProfileInfo.id, new VolleyInterfaceObject() {
                             @Override
                             public void onError(String message) {
@@ -132,7 +132,7 @@ public class UsersListviewAdapter extends ArrayAdapter<User> {
                             public void onResponse(JSONObject response) {
                                 try {
                                     if (response.getInt("affectedRows") > 0) {
-                                        Util.showToast(context, "Sent Successfully");
+                                        Util.showToast(context, R.string.succsend);
                                         Util.dismissProgressDialog();
                                     }
                                 } catch (JSONException e) {
@@ -146,7 +146,7 @@ public class UsersListviewAdapter extends ArrayAdapter<User> {
                 });
                 break;
             case 3:
-                friendRequestBtn.setText("Open Chat");
+                friendRequestBtn.setText(R.string.Openchat);
                 friendRequestBtn.setVisibility(View.VISIBLE);
                 friendReqDelBtn.setVisibility(View.GONE);
                 friendRequestBtn.setOnClickListener(new View.OnClickListener() {
