@@ -6,11 +6,9 @@ import android.os.Bundle;
 import android.widget.ListView;
 
 import edu.url.salle.spencerjames.johnson.proj.adapters.EventsListviewAdapter;
-import edu.url.salle.spencerjames.johnson.proj.adapters.UsersListviewAdapter;
 import edu.url.salle.spencerjames.johnson.proj.api.API;
 import edu.url.salle.spencerjames.johnson.proj.interfaces.VolleyInterfaceArray;
 import edu.url.salle.spencerjames.johnson.proj.models.Event;
-import edu.url.salle.spencerjames.johnson.proj.models.User;
 import edu.url.salle.spencerjames.johnson.proj.utils.Util;
 
 import org.json.JSONArray;
@@ -24,7 +22,7 @@ import java.util.ArrayList;
 public class AllEventsActivity extends AppCompatActivity {
 
     private ListView eventsLv;
-    private ArrayList<Event> eventsList = new ArrayList<>();
+    private final ArrayList<Event> eventsList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

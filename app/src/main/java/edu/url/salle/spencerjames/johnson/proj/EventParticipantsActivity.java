@@ -23,7 +23,7 @@ import java.util.ArrayList;
 public class EventParticipantsActivity extends AppCompatActivity {
 
     private ListView usersLv;
-    private ArrayList<User> usersList = new ArrayList<>();
+    private final ArrayList<User> usersList = new ArrayList<>();
     private TextView attendingTv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

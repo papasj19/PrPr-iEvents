@@ -71,5 +71,7 @@
     <string name="SearchSpecificeventbyID">Search Specific event by ID</string>
     <string name="noofparticipants">no of participants</string>
     <string name="date">date</string>
+    <string name="profile_picture_desc">profile picture</string>
+    <string name="event_image_desc">event image</string>
 
 </resources>

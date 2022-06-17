@@ -25,8 +25,8 @@ import java.util.ArrayList;
 
 
 public class UsersListviewAdapter extends ArrayAdapter<User> {
-    Context context;
-    int type;
+    final Context context;
+    final int type;
     public UsersListviewAdapter(Context context, ArrayList<User> usersList, int type) {
         super(context, 0, usersList);
         this.context = context;
@@ -107,45 +107,39 @@ public class UsersListviewAdapter extends ArrayAdapter<User> {
                 friendRequestBtn.setText("Send Friend Request");
                 friendRequestBtn.setVisibility(View.VISIBLE);
                 friendReqDelBtn.setVisibility(View.GONE);
-                friendRequestBtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Util.showProgressDialog(context, "Sending friend request\nPlease wait");
-                        API.sendFriendRequest(context, userProfileInfo.id, new VolleyInterfaceObject() {
-                            @Override
-                            public void onError(String message) {
-                                Util.showToast(context, message);
-                                Util.dismissProgressDialog();
-                            }
+                friendRequestBtn.setOnClickListener(view -> {
+                    Util.showProgressDialog(context, "Sending friend request\nPlease wait");
+                    API.sendFriendRequest(context, userProfileInfo.id, new VolleyInterfaceObject() {
+                        @Override
+                        public void onError(String message) {
+                            Util.showToast(context, message);
+                            Util.dismissProgressDialog();
+                        }
 
-                            @Override
-                            public void onResponse(JSONObject response) {
-                                try {
-                                    if (response.getInt("affectedRows") > 0) {
-                                        Util.showToast(context, "Sent Successfully");
-                                        Util.dismissProgressDialog();
-                                    }
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                    Util.showToast(context, e.getLocalizedMessage());
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            try {
+                                if (response.getInt("affectedRows") > 0) {
+                                    Util.showToast(context, "Sent Successfully");
                                     Util.dismissProgressDialog();
                                 }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                                Util.showToast(context, e.getLocalizedMessage());
+                                Util.dismissProgressDialog();
                             }
-                        });
-                    }
+                        }
+                    });
                 });
                 break;
             case 3:
                 friendRequestBtn.setText("Open Chat");
                 friendRequestBtn.setVisibility(View.VISIBLE);
                 friendReqDelBtn.setVisibility(View.GONE);
-                friendRequestBtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent intent = new Intent(context, ChatActivity.class);
-                        intent.putExtra("id", userProfileInfo.id);
-                        context.startActivity(intent);
-                    }
+                friendRequestBtn.setOnClickListener(view -> {
+                    Intent intent = new Intent(context, ChatActivity.class);
+                    intent.putExtra("id", userProfileInfo.id);
+                    context.startActivity(intent);
                 });
                 break;
         }

@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class ChatUsersActivity extends AppCompatActivity {
 
     private ListView usersLv;
-    private ArrayList<User> usersList = new ArrayList<>();
+    private final ArrayList<User> usersList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

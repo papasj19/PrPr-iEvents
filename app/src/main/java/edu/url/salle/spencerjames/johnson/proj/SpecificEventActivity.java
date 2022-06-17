@@ -60,7 +60,7 @@ public class SpecificEventActivity extends AppCompatActivity {
                 API.getEventBySearch(SpecificEventActivity.this,
                         "keyword="+searchEtKeyword.getText().toString()+
                         "&location="+searchEtLocation.getText().toString()
-                        + (searchEtDate.getText().toString().length() > 0 ? searchEtDate.getText().toString() : "")
+                        + (Util.isEditTextEmpty(searchEtDate) ? "" : searchEtDate.getText().toString())
                         , new VolleyInterfaceArray() {
                     @Override
                     public void onError(String message) {
@@ -82,6 +82,7 @@ public class SpecificEventActivity extends AppCompatActivity {
             if (results.length() > 0) {
                 for (int i = 0; i < results.length(); i++) {
                     JSONObject eventJson = results.getJSONObject(i);
+                    //TODO make this show the event adapter
                     eventInfoTv.setText(eventInfoTv.getText().toString() + "\n\n" +
                             "ID: " + eventJson.getInt("id") + "\n"
                             + "Owner ID: " + eventJson.getInt("owner_id") + "\n"
