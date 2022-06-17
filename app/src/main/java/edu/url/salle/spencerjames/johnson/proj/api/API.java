@@ -303,7 +303,7 @@ public abstract class API {
 
     public static void getEventBySearch(Context context, String search, VolleyInterfaceArray volleyInterfaceArray){
 
-        JsonArrayRequest SingUpUserRequest = new JsonArrayRequest(Request.Method.GET,  baseUrl+"/events/search?keyword="+search, null,
+        JsonArrayRequest SingUpUserRequest = new JsonArrayRequest(Request.Method.GET,  baseUrl+"/events/search?"+search, null,
                 response -> volleyInterfaceArray.onResponse(response),
                 error -> volleyInterfaceArray.onError(Util.parseVolleyError(error))
         ){

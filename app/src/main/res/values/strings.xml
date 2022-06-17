@@ -70,5 +70,6 @@
     <string name="SpecificandSearchEvent">Specific and Search Event</string>
     <string name="SearchSpecificeventbyID">Search Specific event by ID</string>
     <string name="noofparticipants">no of participants</string>
+    <string name="date">date</string>
 
 </resources>

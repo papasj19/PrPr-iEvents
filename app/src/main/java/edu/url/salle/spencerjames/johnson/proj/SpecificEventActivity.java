@@ -2,9 +2,7 @@ package edu.url.salle.spencerjames.johnson.proj;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -18,17 +16,18 @@ import org.json.JSONObject;
 
 public class SpecificEventActivity extends AppCompatActivity {
 
-    private EditText idEt, searchEt;
+    private EditText idEt, searchEtKeyword, searchEtLocation, searchEtDate;
     private TextView eventInfoTv;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_specific_event);
 
-
-
         idEt = findViewById(R.id.specific_et_id);
-        searchEt = findViewById(R.id.specific_et_search);
+        searchEtKeyword = findViewById(R.id.specific_et_search_keyword);
+        searchEtLocation = findViewById(R.id.specific_et_search_location);
+        searchEtDate = findViewById(R.id.specific_et_search_date);
         eventInfoTv = findViewById(R.id.specific_tv_eventinfo);
 
         findViewById(R.id.specific_btn_id).setOnClickListener(view -> {
@@ -53,12 +52,16 @@ public class SpecificEventActivity extends AppCompatActivity {
         });
 
         findViewById(R.id.specific_btn_search).setOnClickListener(view -> {
-            if(Util.isEditTextEmpty(searchEt)){
+            if(Util.isEditTextEmpty(searchEtKeyword)){
                 Util.showToast(SpecificEventActivity.this, SpecificEventActivity.this.getString(R.string.Plzentkeyword));
             }else{
                 eventInfoTv.setText("");
                 Util.showProgressDialog(SpecificEventActivity.this, SpecificEventActivity.this.getString(R.string.gettingeventinfo));
-                API.getEventBySearch(SpecificEventActivity.this, searchEt.getText().toString(), new VolleyInterfaceArray() {
+                API.getEventBySearch(SpecificEventActivity.this,
+                        "keyword="+searchEtKeyword.getText().toString()+
+                        "&location="+searchEtLocation.getText().toString()
+                        + (searchEtDate.getText().toString().length() > 0 ? searchEtDate.getText().toString() : "")
+                        , new VolleyInterfaceArray() {
                     @Override
                     public void onError(String message) {
                         Util.showToast(SpecificEventActivity.this, message);
@@ -87,7 +90,6 @@ public class SpecificEventActivity extends AppCompatActivity {
                             + "Description: " + eventJson.getString("description") + "\n"
                             + "Type: " + eventJson.getString("type") + "\n"
                             + "No of participants: " + eventJson.getInt("n_participators"));
-
                 }
             } else {
                 Util.showToast(SpecificEventActivity.this, "No events found.");
