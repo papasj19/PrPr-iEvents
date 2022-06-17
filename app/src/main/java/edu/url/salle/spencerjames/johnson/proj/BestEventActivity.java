@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class BestEventActivity extends AppCompatActivity {
 
     private ListView eventsLv;
-    private ArrayList<Event> eventsList = new ArrayList<>();
+    private final ArrayList<Event> eventsList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,7 +65,7 @@ public class BestEventActivity extends AppCompatActivity {
     }
 
     private void setListview(){
-        EventsListviewAdapter eventsListviewAdapter = new EventsListviewAdapter(BestEventActivity.this, eventsList, 0);
+        EventsListviewAdapter eventsListviewAdapter = new EventsListviewAdapter(BestEventActivity.this, eventsList);
         eventsLv.setAdapter(eventsListviewAdapter);
     }
 }

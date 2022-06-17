@@ -6,11 +6,9 @@ import android.os.Bundle;
 import android.widget.ListView;
 
 import edu.url.salle.spencerjames.johnson.proj.adapters.EventsListviewAdapter;
-import edu.url.salle.spencerjames.johnson.proj.adapters.UsersListviewAdapter;
 import edu.url.salle.spencerjames.johnson.proj.api.API;
 import edu.url.salle.spencerjames.johnson.proj.interfaces.VolleyInterfaceArray;
 import edu.url.salle.spencerjames.johnson.proj.models.Event;
-import edu.url.salle.spencerjames.johnson.proj.models.User;
 import edu.url.salle.spencerjames.johnson.proj.utils.Util;
 
 import org.json.JSONArray;
@@ -24,13 +22,14 @@ import java.util.ArrayList;
 public class AllEventsActivity extends AppCompatActivity {
 
     private ListView eventsLv;
-    private ArrayList<Event> eventsList = new ArrayList<>();
+    private final ArrayList<Event> eventsList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_events);
 
-        init();
+        eventsLv = findViewById(R.id.events_lv_events);
+
         Util.showProgressDialog(AllEventsActivity.this, AllEventsActivity.this.getString(R.string.getevents));
         API.getAllEvents(AllEventsActivity.this, new VolleyInterfaceArray() {
             @Override
@@ -63,12 +62,8 @@ public class AllEventsActivity extends AppCompatActivity {
 
     }
 
-    private void init(){
-        eventsLv = findViewById(R.id.events_lv_events);
-    }
-
     private void setListview(){
-        EventsListviewAdapter eventsListviewAdapter = new EventsListviewAdapter(AllEventsActivity.this, eventsList, 0);
+        EventsListviewAdapter eventsListviewAdapter = new EventsListviewAdapter(AllEventsActivity.this, eventsList);
         eventsLv.setAdapter(eventsListviewAdapter);
     }
 }

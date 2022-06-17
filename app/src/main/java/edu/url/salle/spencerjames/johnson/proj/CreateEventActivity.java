@@ -3,7 +3,6 @@ package edu.url.salle.spencerjames.johnson.proj;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.EditText;
 
 import edu.url.salle.spencerjames.johnson.proj.api.API;
@@ -34,36 +33,33 @@ public class CreateEventActivity extends AppCompatActivity {
         typeEt = findViewById(R.id.create_et_type);
         noOfPartEt = findViewById(R.id.create_et_noofparticipants);
 
-        findViewById(R.id.create_btn_create).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(Util.isEditTextEmpty(nameEt) || Util.isEditTextEmpty(imgEt) ||
-                        Util.isEditTextEmpty(locEt) || Util.isEditTextEmpty(desEt) ||
-                        Util.isEditTextEmpty(startDateEt) || Util.isEditTextEmpty(endDateEt) ||
-                        Util.isEditTextEmpty(typeEt) || Util.isEditTextEmpty(noOfPartEt)){
-                    Util.showToast(CreateEventActivity.this, CreateEventActivity.this.getString(R.string.createevent));
-                }else{
-                    Util.showProgressDialog(CreateEventActivity.this, CreateEventActivity.this.getString(R.string.createevent));
-                    API.createEvent(new Event(nameEt.getText().toString(), imgEt.getText().toString(),
-                                    locEt.getText().toString(), desEt.getText().toString(), startDateEt.getText().toString(),
-                                    endDateEt.getText().toString(), typeEt.getText().toString(), Integer.parseInt(noOfPartEt.getText().toString())),
-                            CreateEventActivity.this, new VolleyInterfaceObject() {
-                                @Override
-                                public void onError(String message) {
-                                    Util.showToast(CreateEventActivity.this, message);
-                                    Util.dismissProgressDialog();
-                                }
+        findViewById(R.id.create_btn_create).setOnClickListener(view -> {
+            if(Util.isEditTextEmpty(nameEt) || Util.isEditTextEmpty(imgEt) ||
+                    Util.isEditTextEmpty(locEt) || Util.isEditTextEmpty(desEt) ||
+                    Util.isEditTextEmpty(startDateEt) || Util.isEditTextEmpty(endDateEt) ||
+                    Util.isEditTextEmpty(typeEt) || Util.isEditTextEmpty(noOfPartEt)){
+                Util.showToast(CreateEventActivity.this, CreateEventActivity.this.getString(R.string.createevent));
+            }else{
+                Util.showProgressDialog(CreateEventActivity.this, CreateEventActivity.this.getString(R.string.createevent));
+                API.createEvent(new Event(nameEt.getText().toString(), imgEt.getText().toString(),
+                                locEt.getText().toString(), desEt.getText().toString(), startDateEt.getText().toString(),
+                                endDateEt.getText().toString(), typeEt.getText().toString(), Integer.parseInt(noOfPartEt.getText().toString())),
+                        CreateEventActivity.this, new VolleyInterfaceObject() {
+                            @Override
+                            public void onError(String message) {
+                                Util.showToast(CreateEventActivity.this, message);
+                                Util.dismissProgressDialog();
+                            }
 
-                                @Override
-                                public void onResponse(JSONObject response) {
-                                    if(response!=null){
-                                        Util.showToast(CreateEventActivity.this, CreateEventActivity.this.getString(R.string.eventcreatesucc));
-                                        Util.dismissProgressDialog();
-                                        onBackPressed();
-                                    }
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                if(response!=null){
+                                    Util.showToast(CreateEventActivity.this, CreateEventActivity.this.getString(R.string.eventcreatesucc));
+                                    Util.dismissProgressDialog();
+                                    onBackPressed();
                                 }
-                            });
-                }
+                            }
+                        });
             }
         });
     }

@@ -1,8 +1,14 @@
 package edu.url.salle.spencerjames.johnson.proj.models;
 
 public class Event {
-    public String name, image, location, description, eventStart_date, eventEnd_date, type;
-    public int n_participators;
+    public final String name;
+    public final String image;
+    public final String location;
+    public final String description;
+    public final String eventStart_date;
+    public final String eventEnd_date;
+    public final String type;
+    public final int n_participators;
     public int id, ownerId;
     public Event(String name, String image, String location, String description, String eventStart_date, String eventEnd_date, String type, int n_participators) {
         this.name = name;

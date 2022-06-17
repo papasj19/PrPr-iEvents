@@ -3,7 +3,6 @@ package edu.url.salle.spencerjames.johnson.proj;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ListView;
 
 import edu.url.salle.spencerjames.johnson.proj.adapters.UsersListviewAdapter;
@@ -23,7 +22,7 @@ import java.util.ArrayList;
 public class FriendsActivity extends AppCompatActivity {
 
     private ListView usersLv;
-    private ArrayList<User> usersList = new ArrayList<>();
+    private final ArrayList<User> usersList = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

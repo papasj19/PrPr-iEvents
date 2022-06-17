@@ -3,7 +3,6 @@ package edu.url.salle.spencerjames.johnson.proj;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.EditText;
 
 import edu.url.salle.spencerjames.johnson.proj.api.API;
@@ -34,36 +33,33 @@ public class EditActivity extends AppCompatActivity {
         emailEt = findViewById(R.id.edit_et_email);
         imgUrlEt = findViewById(R.id.edit_et_img);
 
-        findViewById(R.id.edit_btn_update).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (Util.isEditTextEmpty(fnameEt) || Util.isEditTextEmpty(lnameEt) ||
-                        Util.isEditTextEmpty(emailEt) ||
-                        Util.isEditTextEmpty(imgUrlEt)){
-                    Util.showToast(EditActivity.this, EditActivity.this.getString(R.string.empty_fields));
-                }
-                else {
-                    Util.showProgressDialog(EditActivity.this, EditActivity.this.getString(R.string.Updatingplzw));
-                    API.putUser(EditActivity.this, new User(fnameEt.getText().toString(), lnameEt.getText().toString(),
-                                    emailEt.getText().toString(),null,imgUrlEt.getText().toString()),
-                            new VolleyInterfaceArray() {
-                                @Override
-                                public void onError(String message) {
-                                    Util.showToast(EditActivity.this, EditActivity.this.getString(R.string.updatesucc));  //we've tested it and so far the only error is a common can't convert JSONArray to JSONObj but the update itself works perfectly
-                                    Util.dismissProgressDialog();   //so we ignore it since we don't use the response data
+        findViewById(R.id.edit_btn_update).setOnClickListener(view -> {
+            if (Util.isEditTextEmpty(fnameEt) || Util.isEditTextEmpty(lnameEt) ||
+                    Util.isEditTextEmpty(emailEt) ||
+                    Util.isEditTextEmpty(imgUrlEt)){
+                Util.showToast(EditActivity.this, EditActivity.this.getString(R.string.empty_fields));
+            }
+            else {
+                Util.showProgressDialog(EditActivity.this, EditActivity.this.getString(R.string.Updatingplzw));
+                API.putUser(EditActivity.this, new User(fnameEt.getText().toString(), lnameEt.getText().toString(),
+                                emailEt.getText().toString(),null,imgUrlEt.getText().toString()),
+                        new VolleyInterfaceArray() {
+                            @Override
+                            public void onError(String message) {
+                                Util.showToast(EditActivity.this, EditActivity.this.getString(R.string.updatesucc));  //we've tested it and so far the only error is a common can't convert JSONArray to JSONObj but the update itself works perfectly
+                                Util.dismissProgressDialog();   //so we ignore it since we don't use the response data
+                                onBackPressed();
+                            }
+
+                            @Override
+                            public void onResponse(JSONArray response) {
+                                if(response.length()>0){
+                                    Util.showToast(EditActivity.this, EditActivity.this.getString(R.string.updatesucc));
+                                    Util.dismissProgressDialog();
                                     onBackPressed();
                                 }
-
-                                @Override
-                                public void onResponse(JSONArray response) {
-                                    if(response.length()>0){
-                                        Util.showToast(EditActivity.this, EditActivity.this.getString(R.string.updatesucc));
-                                        Util.dismissProgressDialog();
-                                        onBackPressed();
-                                    }
-                                }
-                            });
-                }
+                            }
+                        });
             }
         });
 

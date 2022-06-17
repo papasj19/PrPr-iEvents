@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
@@ -14,7 +13,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/applogo" />
+        app:srcCompat="@drawable/applogo"
+        android:contentDescription="@string/event_image_desc"/>
 
     <TextView
         android:id="@+id/event_vh_tv_eventinfo"
@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:text="TextView"
+        android:text="@string/event_info"
         app:layout_constraintBottom_toTopOf="@+id/event_vh_btn_participants"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,10 +30,11 @@
 
     <Button
         android:id="@+id/event_vh_btn_participants"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:text="See participants"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:background="@drawable/roundedbtn_small"
+        android:layout_marginBottom="8dp"
+        android:text="@string/see_participants"
         app:layout_constraintBottom_toTopOf="@+id/event_vh_btn_attend"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -41,11 +42,12 @@
     <Button
         android:id="@+id/event_vh_btn_attend"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="8dp"
+        android:layout_height="36dp"
+        android:background="@drawable/roundedbtn_small"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:text="@string/Attendevent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/event_vh_btn_modify"
         app:layout_constraintEnd_toStartOf="@+id/event_vh_btn_drop"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
@@ -53,11 +55,25 @@
     <Button
         android:id="@+id/event_vh_btn_drop"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
+        android:layout_height="36dp"
+        android:background="@drawable/roundedbtn_small"
+        android:layout_marginStart="8dp"
         android:text="@string/DropEvent"
         app:layout_constraintBottom_toBottomOf="@+id/event_vh_btn_attend"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/event_vh_btn_attend" />
+
+    <Button
+        android:id="@+id/event_vh_btn_modify"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:visibility="gone"
+        android:background="@drawable/roundedbtn_small"
+        android:layout_marginTop="8dp"
+        android:text="@string/modify_event"
+        app:layout_constraintTop_toBottomOf="@+id/event_vh_btn_attend"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

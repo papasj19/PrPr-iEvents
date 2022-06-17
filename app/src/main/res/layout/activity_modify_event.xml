@@ -5,26 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="16dp"
-    tools:context=".SignupActivity">
+    tools:context=".CreateEventActivity">
 
     <EditText
-        android:id="@+id/signup_et_img"
+        android:id="@+id/mod_et_image"
         android:background="@drawable/edit_text_rounded"
         android:layout_width="0dp"
         android:layout_height="36dp"
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="16dp"
         android:ems="10"
         android:hint="@string/imgurl"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/signup_btn_signup"
+        app:layout_constraintBottom_toTopOf="@+id/mod_et_location"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/signup_et_fname"
+        android:id="@+id/mod_et_type"
         android:background="@drawable/edit_text_rounded"
         android:layout_width="0dp"
         android:layout_height="36dp"
@@ -32,15 +32,15 @@
         android:paddingEnd="16dp"
         android:layout_marginBottom="16dp"
         android:ems="10"
-        android:hint="@string/firstname"
+        android:hint="@string/eventtype"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/signup_et_lname"
+        app:layout_constraintBottom_toTopOf="@+id/mod_btn_modify"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/signup_et_lname"
+        android:id="@+id/mod_et_name"
         android:background="@drawable/edit_text_rounded"
         android:layout_width="0dp"
         android:layout_height="36dp"
@@ -48,15 +48,15 @@
         android:paddingEnd="16dp"
         android:layout_marginBottom="16dp"
         android:ems="10"
-        android:hint="@string/lastname"
+        android:hint="@string/eventname"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/signup_et_email"
+        app:layout_constraintBottom_toTopOf="@+id/mod_et_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/signup_et_password"
+        android:id="@+id/mod_et_location"
         android:background="@drawable/edit_text_rounded"
         android:layout_width="0dp"
         android:layout_height="36dp"
@@ -64,27 +64,75 @@
         android:paddingEnd="16dp"
         android:layout_marginBottom="16dp"
         android:ems="10"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/signup_et_img"
+        android:hint="@string/location"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/mod_et_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/mod_et_description"
+        android:background="@drawable/edit_text_rounded"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:ems="10"
+        android:hint="@string/description"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/mod_et_startdate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/mod_et_startdate"
+        android:background="@drawable/edit_text_rounded"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:ems="10"
+        android:hint="@string/eventstartdate"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/mod_et_enddate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/mod_et_enddate"
+        android:background="@drawable/edit_text_rounded"
+        android:layout_width="0dp"
+        android:layout_height="36dp"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:ems="10"
+        android:hint="@string/eventenddate"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/mod_et_noofparticipants"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/signup_btn_signup"
+        android:id="@+id/mod_btn_modify"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/roundedbtn"
-        android:layout_marginBottom="48dp"
-        android:text="@string/Signup"
+        android:text="@string/Create_Event"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/signup_et_email"
+        android:id="@+id/mod_et_noofparticipants"
         android:background="@drawable/edit_text_rounded"
         android:layout_width="0dp"
         android:layout_height="36dp"
@@ -92,22 +140,21 @@
         android:paddingEnd="16dp"
         android:layout_marginBottom="16dp"
         android:ems="10"
-        android:hint="@string/email"
-        android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/signup_et_password"
+        android:hint="@string/noofparticipants"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/mod_et_type"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/mod_imageView3"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/signup_et_fname"
+        app:layout_constraintBottom_toTopOf="@+id/mod_et_name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/applogo" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

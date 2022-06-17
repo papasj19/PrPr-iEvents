@@ -7,21 +7,17 @@ import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 
 public abstract class Util {
     public static void showToast(Context context, String message){
         Toast.makeText(context, message,Toast.LENGTH_LONG).show();
     }
     public static boolean isEditTextEmpty(EditText etText) {
-        if (etText.getText().toString().trim().length() > 0)
-            return false;
-
-        return true;
+        return etText.getText().toString().trim().length() <= 0;
     }
 
     private static ProgressDialog progressDialog;
@@ -40,12 +36,8 @@ public abstract class Util {
     }
 
     public static String parseVolleyError(VolleyError error) {
-        String responseBody = "";
-        try {
-            responseBody = new String(error.networkResponse.data, "utf-8");
-        } catch (UnsupportedEncodingException e) {
-            return "null";
-        }
+        String responseBody;
+        responseBody = new String(error.networkResponse.data, StandardCharsets.UTF_8);
 
         try {
             //trying with standard error response from API (fields contain wrong info)
